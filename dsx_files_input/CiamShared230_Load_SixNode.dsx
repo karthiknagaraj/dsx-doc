@@ -1,0 +1,772 @@
+BEGIN HEADER
+   CharacterSet "CP1252"
+   ExportingTool "IBM InfoSphere DataStage Export"
+   ToolVersion "8"
+   ServerName "CDOPLA-129-000"
+   ToolInstanceID "nonintegrprod"
+   MDISVersion "1.0"
+   Date "2024-10-23"
+   Time "11.57.50"
+   ServerVersion "11.7"
+END HEADER
+BEGIN DSJOB
+   Identifier "CiamShared230_Load_SixNode"
+   DateModified "2024-10-23"
+   TimeModified "11.43.03"
+   BEGIN DSRECORD
+      Identifier "ROOT"
+      OLEType "CJobDefn"
+      Readonly "0"
+      Name "CiamShared230_Load_SixNode"
+      Description "This job will load data to target staging tables having High volume data"
+      NextID "42"
+      Container "V0"
+      FullDescription =+=+=+=
+Job:CiamShared230_Load_SixNode
+Project : EDW CIAM
+Developer:  Manikanteswara Gogula
+Date : 16-Sep-2024
+
+Description : This is a MLOAD job with Multi node configuration which will load data from Kafka Flat files and load to target staging tables using schema files and Runtime Column Propagation.
+This job will be called dynamically during the runtime based on the volume of the data.                  
+
+Before Routine: NA
+After Routine: CiamShared080_FileArchive.ksh
+
+Restart Procedure: Rerun the Job
+
+=+=+=+=
+      JobVersion "56.0.1"
+      AfterSubr "DSU.ExecSHAbend\\#FilePathShr#/CiamShared080_FileArchive.ksh #FilePath# #ConfigFileName# #ProcessingFileName#;"
+      ControlAfterSubr "1"
+      Parameters "CParameters"
+      BEGIN DSSUBRECORD
+         Name "FilePath"
+         Prompt "FilePath"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataSysdbaSpoolDB"
+         Prompt "TeraDataSysdbaSpoolDB"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CycleList"
+         Prompt "CycleList"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CycleType"
+         Prompt "CycleType"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "FileSequenceNumber"
+         Prompt "FileSequenceNumber"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConfigFileName"
+         Prompt "ConfigFileName"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataViewDB"
+         Prompt "TeraDataViewDB"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataServerName"
+         Prompt "TeraDataServerName"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataUserId"
+         Prompt "TeraDataUserId"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataPassword"
+         Prompt "TeraDataPassword"
+         ParamType "1"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataView"
+         Prompt "TeraDataView"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "$APT_CONFIG_FILE"
+         Prompt "Configuration file"
+         Default "/IBM/InformationServer/Server/Configurations/MultiNodeDefault.apt"
+         HelpTxt "The Parallel job configuration file."
+         ParamType "4"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "FilePathSchema"
+         Prompt "FilePathSchema"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "LogicalDate"
+         Prompt "LogicalDate"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "FilePathProcessing"
+         Prompt "FilePathProcessing"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ProcessingFileName"
+         Prompt "ProcessingFileName"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TDConnectorSyncTimeout"
+         Prompt "TDConnectorSyncTimeout"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "InputFileName"
+         Prompt "InputFileName"
+         Default "#FilePathProcessing#/#ProcessingFileName#_#FileSequenceNumber#"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "FilePathShr"
+         Prompt "FilePathShr"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "AdvancedRuntimeOptions"
+         Value "#DSProjectARTOptions#"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceMode"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceSeq"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceRecords"
+         Value "100"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceSkip"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TracePeriod"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "IdentList"
+         Value "Target_Staging_Table|Source_File|SetValue_Copy|SetValue_Tx"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "ClientCodePage"
+         Value "1252"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RecordJobPerformanceData"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MessageHandler"
+         Value "External_String_Too_Long"
+      END DSSUBRECORD
+      NULLIndicatorPosition "0"
+      IsTemplate "0"
+      NLSLocale ",,,,"
+      JobType "3"
+      Category "\\Jobs\\ciam\\Shared\\Auth0"
+      CenturyBreakYear "30"
+      NextAliasID "2"
+      ParameterFileDDName "DD00001"
+      ReservedWordCheck "1"
+      TransactionSize "0"
+      ValidationStatus "0"
+      Uploadable "0"
+      PgmCustomizationFlag "0"
+      JobReportFlag "0"
+      AllowMultipleInvocations "1"
+      Act2ActOverideDefaults "0"
+      Act2ActEnableRowBuffer "0"
+      Act2ActUseIPC "0"
+      Act2ActBufferSize "0"
+      Act2ActIPCTimeout "0"
+      ExpressionSemanticCheckFlag "0"
+      TraceOption "0"
+      EnableCacheSharing "0"
+      RuntimeColumnPropagation "1"
+      RelStagesInJobStatus "-1"
+      WebServiceEnabled "0"
+      MFProcessMetaData "0"
+      MFProcessMetaDataXMLFileExchangeMethod "0"
+      IMSProgType "0"
+      CopyLibPrefix "ARDT"
+      RecordPerformanceResults "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0"
+      OLEType "CContainerView"
+      Readonly "0"
+      Name "Job"
+      NextID "1"
+      IsTopLevel "0"
+      StageList "V36A0|V38S2|V38S3|V0S152|V0S153"
+      StageXPos "122|624|72|432|264"
+      StageYPos "11|312|312|312|312"
+      StageTypes "ID_PALETTEANNOTATION|CCustomStage.CC_GUI|CCustomStage|CCustomStage|CTransformerStage"
+      NextStageID "156"
+      SnapToGrid "1"
+      GridLines "0"
+      ZoomValue "100"
+      StageXSize "585|48|48|48|48"
+      StageYSize "234|48|48|48|48"
+      ContainerViewSizing "0020 0047 0858 0669 0000 0001 0000 0000"
+      StageNames " |Target_Staging_Table|Source_File|SetValue_Copy|SetValue_Tx"
+      StageTypeIDs " |TeradataConnectorPX|PxSequentialFile|PxCopy|CTransformerStage"
+      LinkNames " | |Source_Ln|Target_Tbl_Ln|Source_data_Ln"
+      LinkHasMetaDatas " | |False|False|True"
+      LinkTypes " | |1|1|1"
+      LinkNamePositionXs " | |171|501|339"
+      LinkNamePositionYs " | |336|339|345"
+      TargetStageIDs " | |V0S153|V38S2|V0S152"
+      SourceStageEffectiveExecutionModes " | |1|2|2"
+      SourceStageRuntimeExecutionModes " | |1|2|2"
+      TargetStageEffectiveExecutionModes " | |2|2|2"
+      TargetStageRuntimeExecutionModes " | |2|2|2"
+      LinkIsSingleOperatorLookup " | |False|False|False"
+      LinkIsSortSequential " | |False|False|False"
+      LinkSortMode " | |0|0|0"
+      LinkPartColMode " | |1|1|1"
+      LinkSourcePinIDs " | |V38S3P2|V0S152P2|V0S153P2"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S152"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "SetValue_Copy"
+      NextID "3"
+      InputPins "V0S152P1"
+      OutputPins "V0S152P2"
+      StageType "PxCopy"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "force"
+         Value " "
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S152P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "Source_data_Ln"
+      Partner "V0S153|V0S153P2"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "1"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S152P2"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "Target_Tbl_Ln"
+      Partner "V38S2|V38S2P3"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "501"
+      TopTextPos "339"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S153"
+      OLEType "CTransformerStage"
+      Readonly "0"
+      Name "SetValue_Tx"
+      NextID "3"
+      InputPins "V0S153P1"
+      OutputPins "V0S153P2"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCode"
+         Value =+=+=+=
+//
+// Generated file to implement the V0S153_CiamShared230_Load_SixNode_SetValue_Tx transform operator.
+//
+
+// define our input/output link names
+inputname 0 Source_Ln;
+outputname 0 Source_data_Ln;
+
+initialize {
+ // define our control variables
+ int8 RowRejected;
+ int8 NullSetVar;
+
+}
+
+mainloop {
+
+ // initialise the rejected row variable
+ RowRejected = 1;
+
+ // evaluate columns (no constraints) for link: Source_data_Ln
+ Source_data_Ln.INSERT_DT_TM = current_timestamp();
+ writerecord 0;
+ RowRejected = 0;
+}
+
+finish {
+}
+
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCache"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxClassName"
+         Value "V0S153_CiamShared230_Load_SixNode_SetValue_Tx"
+      END DSSUBRECORD
+      ValidationStatus "0"
+      StageType "CTransformerStage"
+      BlockSize "0"
+      StageVarsMinimised "0"
+      LoopVarsMaximised "0"
+      MaxLoopIterations "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S153P1"
+      OLEType "CTrxInput"
+      Readonly "0"
+      Name "Source_Ln"
+      Partner "V38S3|V38S3P2"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  inRec:*;
+)
+=+=+=+=
+      END DSSUBRECORD
+      MultiRow "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S153P2"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "Source_data_Ln"
+      Partner "V0S152|V0S152P1"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "INSERT_DT_TM"
+         SqlType "11"
+         Precision "26"
+         Scale "10"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "CurrentTimestamp()"
+         Group "0"
+         ParsedDerivation "CurrentTimestamp()"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "1"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  INSERT_DT_TM:timestamp[microseconds];
+  outRec:*;
+)
+=+=+=+=
+      END DSSUBRECORD
+      LeftTextPos "339"
+      TopTextPos "345"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V36A0"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V36A0"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText =+=+=+=
+Job:CiamShared230_Load_SixNode
+Project : EDW CIAM
+Developer:  Manikanteswara Gogula
+Date : 16-Sep-2024
+
+Description : This is a MLOAD job with Multi node configuration which will load data from Kafka Flat files and load to target staging tables using schema files and Runtime Column Propagation.
+This job will be called dynamically during the runtime based on the volume of the data.                  
+
+Before Routine: NA
+After Routine: CiamShared080_FileArchive.ksh
+
+Restart Procedure: Rerun the Job
+
+=+=+=+=
+      TextFont "Microsoft Sans Serif\\11\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "0"
+      TextVerticalJustification "0"
+      TextColor "0"
+      BackgroundColor "12713983"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V38S2"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "Target_Staging_Table"
+      NextID "4"
+      InputPins "V38S2P3"
+      StageType "TeradataConnectorPX"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "cctera12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariants"
+         Value "V1;12::cctera12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsLibraries"
+         Value "cctera,cctera12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsVersions"
+         Value "1.0,1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Orientation"
+         Value "link"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "TeradataConnector"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Engine"
+         Value "EE"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Context"
+         Value "target"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectionString"
+         Value "/Connection/Server"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Username"
+         Value "/Connection/Username"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Password"
+         Value "/Connection/Password"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "LogOnMech"
+         Value "/Connection/LogOnMech"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+         Value "<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>2</Context><Variant type='string'>12</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>0</PartitionType><RCP type='int'>1</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#TeraDataServerName#]]></Server><Username modified='1' type='string'><![CDATA[#TeraDataUserId#]]></Username><Password modified='1' type='string'><![CDATA[#TeraDataPassword#]]></Password><SSLMode type='int'><![CDATA[2]]><SSLProtocol type='string'><![CDATA[TLS1_2]]></SSLProtocol></SSLMode><Database modified='1' type='string'><![CDATA[#TeraDataViewDB#]]></Database><TransactionMode type='int'><![CDATA[1]]></TransactionMode><ClientCharacterSet modified='1' type='string'><![CDATA[ASCII]]></ClientCharacterSet><AutoMapCharsetEncoding modified='1' type='bool'><![CDATA[0]]></AutoMapCharsetEncoding><NLSMapName modified='1' type='string'><![CDATA[ISO-8859-1]]></NLSMapName><MaxBytesPerCharacter modified='1' type='int'><![CDATA[1]]></MaxBytesPerCharacter><Queryband collapsed='1' type='string'><![CDATA[]]><ReadFromFile collapsed='1' type='bool'><![CDATA[0]]></ReadFromFile></Queryband><LogOnMech type='int'><![CDATA[0]]></LogOnMech><UnicodePassThru type='bool'><![CDATA[0]]></UnicodePassThru></Connection><Usage><IsMigratedJob type='bool'><![CDATA[0]]></IsMigratedJob><WriteMode modified='1' type='int'><![CDATA[0]]></WriteMode><GenerateSQL modified='1' type='bool'><![CDATA[1]]></GenerateSQL><TableName modified='1' type='string'><![CDATA[#TeraDataView#]]></TableName><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><AccessMethod modified='1' type='int'><![CDATA[2]]></AccessMethod><SQL></SQL><TableAction collapsed='1' modified='1' type='int'><![CDATA[0]]></TableAction><Transaction><RecordCount modified='1' type='int'><![CDATA[8000000]]></RecordCount></Transaction><Session><ArraySize modified='1' type='int'><![CDATA[4]]></ArraySize><SchemaReconciliation><UnusedFieldAction modified='1' type='int'><![CDATA[3]]></UnusedFieldAction></SchemaReconciliation><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator></Session><TargetTemporalSupport collapsed='1' type='bool'><![CDATA[0]]></TargetTemporalSupport><BeforeAfter modified='1' type='bool'><![CDATA[1]]><before modified='1' type='string'><![CDATA[DELETE FROM #TeraDataViewDB#.#TeraDataView#;]]><FailOnError type='bool'><![CDATA[1]]></FailOnError></before><after modified='1' type='string'><![CDATA[]]><FailOnError modified='1' type='bool'><![CDATA[0]]></FailOnError></after><beforeNode type='string'><![CDATA[]]><FailOnError type='bool'><![CDATA[1]]></FailOnError></beforeNode><afterNode type='string'><![CDATA[]]><FailOnError modified='1' type='bool'><![CDATA[0]]></FailOnError></afterNode><BeforeSQLFile type='string'><![CDATA[]]><FailOnError type='bool'><![CDATA[1]]></FailOnError></BeforeSQLFile><AfterSQLFile type='string'><![CDATA[]]><FailOnError modified='1' type='bool'><![CDATA[0]]></FailOnError></AfterSQLFile></BeforeAfter><BulkAccess><LoadType modified='1' type='int'><![CDATA[2]]></LoadType><ErrorTable1 modified='1' type='string'><![CDATA[#TeraDataSysdbaSpoolDB#.#TeraDataView#_CIAM_ERR1]]></ErrorTable1><ErrorTable2 modified='1' type='string'><![CDATA[#TeraDataSysdbaSpoolDB#.#TeraDataView#_CIAM_ERR2]]></ErrorTable2><LogTable modified='1' type='string'><![CDATA[#TeraDataSysdbaSpoolDB#.#TeraDataView#_CIAM_LOG]]></LogTable><WorkTable modified='1' type='string'><![CDATA[#TeraDataSysdbaSpoolDB#.#TeraDataView#_CIAM_WT]]></WorkTable><StartMode type='int'><![CDATA[1]]></StartMode><FailOnMLOADerrs type='bool'><![CDATA[1]]></FailOnMLOADerrs><CleanupMode type='int'><![CDATA[1]]></CleanupMode><Sleep type='int'><![CDATA[0]]></Sleep><Tenacity type='int'><![CDATA[0]]></Tenacity><ErrorLimit type='int'><![CDATA[0]]></ErrorLimit><ErrorControl><DuplicateInsertRows type='int'><![CDATA[1]]></DuplicateInsertRows></ErrorControl><UpdateLoad collapsed='1'></UpdateLoad></BulkAccess><LimitSettings><MaxSessions modified='1' type='int'><![CDATA[18]]></MaxSessions><MaxPartitionSessions type='int'><![CDATA[0]]></MaxPartitionSessions><MinSessions modified='1' type='int'><![CDATA[6]]></MinSessions><MaxBufferSize type='int'><![CDATA[0]]></MaxBufferSize><StartRow type='int'><![CDATA[0]]></StartRow><EndRow type='int'><![CDATA[0]]></EndRow><ProgressInterval modified='1' type='int'><![CDATA[1000000]]></ProgressInterval></LimitSettings><ParallelSynchronization modified='1' type='bool'><![CDATA[1]]><SyncTable modified='1' type='string'><![CDATA[#TeraDataSysdbaSpoolDB#.#TeraDataView#_SYNC]]></SyncTable><SyncTableAction modified='1' type='int'><![CDATA[3]]></SyncTableAction><SyncTableCleanup modified='1' type='int'><![CDATA[1]]></SyncTableCleanup><SyncPoll type='int'><![CDATA[0]]></SyncPoll><SyncTimeout modified='1' type='int'><![CDATA[#TDConnectorSyncTimeout#]]></SyncTimeout><CheckpointTimeout type='int'><![CDATA[0]]></CheckpointTimeout><EndTimeout modified='1' type='int'><![CDATA[120]]></EndTimeout></ParallelSynchronization><TMSMEVENTS type='bool'><![CDATA[0]]></TMSMEVENTS><Disconnect collapsed='1' type='int'><![CDATA[0]]></Disconnect></Usage></Properties >"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SSLMode"
+         Value "/Connection/SSLMode"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SSLProtocol"
+         Value "/Connection/SSLMode/SSLProtocol"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "UseCert"
+         Value "/Connection/SSLMode/UseCert"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SSLCA"
+         Value "/Connection/SSLMode/UseCert/SSLCA"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V38S2P3"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "Target_Tbl_Ln"
+      Partner "V0S152|V0S152P2"
+      LinkType "1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "cctera12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "TeradataConnector"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "1"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V38S3"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "Source_File"
+      NextID "3"
+      OutputPins "V38S3P2"
+      StageType "PxSequentialFile"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V38S3P2"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "Source_Ln"
+      Partner "V0S153|V0S153P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "schema"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "selection"
+         Value "file"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "keepPartitions"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "rejects"
+         Value "continue"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "schemafile"
+         Value "#FilePathSchema#/#ProcessingFileName#.osh"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "reportProgress"
+         Value "yes"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "firstLineColumnNames"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "file "
+         Value "\(2)\(2)0\(1)\(3)file \(2)#InputFileName#\(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "missingFile"
+         Value " "
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "171"
+      TopTextPos "336"
+      LinkMinimised "0"
+   END DSRECORD
+END DSJOB

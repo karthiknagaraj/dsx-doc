@@ -1,0 +1,5 @@
+streamlit
+jsonschema
+python-dotenv
+requests
+urllib3

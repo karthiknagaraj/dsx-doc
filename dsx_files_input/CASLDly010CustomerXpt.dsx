@@ -1,0 +1,1911 @@
+BEGIN HEADER
+   CharacterSet "CP1252"
+   ExportingTool "IBM InfoSphere DataStage Export"
+   ToolVersion "8"
+   ServerName "CDOPLA-129-000"
+   ToolInstanceID "nonintegrprod"
+   MDISVersion "1.0"
+   Date "2018-03-13"
+   Time "07.35.45"
+   ServerVersion "11.5"
+END HEADER
+BEGIN DSJOB
+   Identifier "CASLDly010CustomerXpt"
+   DateModified "2018-02-12"
+   TimeModified "08.12.39"
+   BEGIN DSRECORD
+      Identifier "ROOT"
+      OLEType "CJobDefn"
+      Readonly "0"
+      Name "CASLDly010CustomerXpt"
+      Description "Extract data from CMF table EDWFEED_CASL_CUSTOMER based on UPDATE TIMESTAMP and create a loadready file for loading into temp table #TCMF_CASL_CUSTOMER_EXT"
+      NextID "2"
+      Container "V0"
+      FullDescription =+=+=+=
+Job:CASLDly010CustomerXpt
+
+Project : EDWCASL
+Developer:  Sharmila Chandrasekar
+Date : 07-02-2013
+
+Description : Extract data from CMF table EDWFEED_CASL_CUSTOMER based on UPDATE TIMESTAMP and create a loadready file for loading into temp table #TCMF_CASL_CUSTOMER_EXT.
+     
+
+Before Routine: 
+After Routine: 
+
+Restart Procedure: Re-Run the job
+=+=+=+=
+      JobVersion "56.0.0"
+      ControlAfterSubr "0"
+      Parameters "CParameters"
+      BEGIN DSSUBRECORD
+         Name "FilePath"
+         Prompt "FilePath"
+         ParamType "4"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CycleType"
+         Prompt "CycleType"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "FileSequenceNumber"
+         Prompt "FileSequenceNumber"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OracleUserId"
+         Prompt "OracleUserId"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OraclePassword"
+         Prompt "OraclePassword"
+         ParamType "1"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Oracle_ServiceNM"
+         Prompt "Oracle_ServiceNM"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ThisJob"
+         Prompt "ThisJob"
+         Default "CASLDly010CustomerXpt"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CycleStartDt"
+         Prompt "CycleStartDt"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OracleSchema"
+         Prompt "OracleSchema"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OracleSchema1"
+         Prompt "OracleSchema1"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OracleView1"
+         Prompt "OracleView1"
+         Default "EDWFEED_CASL_CUSTOMER"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OracleView2"
+         Prompt "OracleView2"
+         Default "CDCLIENTPOTENTP"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OracleView3"
+         Prompt "OracleView3"
+         Default "CDPROVSTATETP"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OracleView4"
+         Prompt "OracleView4"
+         Default "CDCOUNTRYTP"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OracleView5"
+         Prompt "OracleView5"
+         Default "CDSOURCEIDENTTP"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "AdvancedRuntimeOptions"
+         Value "#DSProjectARTOptions#"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceMode"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceSeq"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceRecords"
+         Value "100"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceSkip"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TracePeriod"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RecordJobPerformanceData"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "IdentList"
+         Value "EDWFEED_CASL_CUSTOMER|EDWFEED_CASL_CUSTOMER_TRX|TempVCMF_CASL_CUSTOMER_Exp_Data"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "ClientCodePage"
+         Value "1252"
+      END DSSUBRECORD
+      NULLIndicatorPosition "0"
+      OrchestrateCode =+=+=+=
+#################################################################
+#### STAGE: EDWFEED_CASL_CUSTOMER
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>11g</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"Oracle_ServiceNM"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"OracleUserId"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"OraclePassword"]]]></Password><OSLevelAuthentication modified=\\'1\\' type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version modified=\\'1\\' type=\\'string\\'><![CDATA[11g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT 
+ CUST.CASL_ID, 
+ CUST.UPDATE_TIMESTAMP AS ACCOUNT_CMF_UPDT_TMSTMP,
+  CLIENTPOTENTP.NAME AS CASL_TYP, 
+ CUST.FIRST_NAME AS FIRST_NM, 
+ CUST.LAST_NAME AS LAST_NM, 
+ CUST.CONTACT_NUMBER AS CONTACT_PHONE_NO, 
+ CUST.ADDR_LINE_ONE, 
+ CUST.ADDR_LINE_TWO, 
+ CUST.ADDR_LINE_THREE, 
+ CUST.POSTAL_CODE AS POSTAL_CD, 
+ PROVSTATETP.NAME AS PROV_STATE_CD, 
+ COUNTRYTP.NAME AS COUNTRY_NM, 
+ CUST.CITY_NAME AS CITY_NM, 
+ CUST.COMPANY_NAME AS COMPANY_NM, 
+ SOURCEIDENTTP.NAME AS CUSTOMER_SRC_SYSTEM_NM
+FROM [&"OracleSchema"].[&"OracleView1"] CUST
+ LEFT OUTER JOIN [&"OracleSchema1"].[&"OracleView2"] CLIENTPOTENTP
+ ON CUST.CASL_TYPE_TP_CD=CLIENTPOTENTP.CLIENT_POTEN_TP_CD
+ LEFT OUTER JOIN [&"OracleSchema1"].[&"OracleView3"] PROVSTATETP
+ ON CUST.PROV_STATE_TP_CD=PROVSTATETP.PROV_STATE_TP_CD
+ LEFT OUTER JOIN [&"OracleSchema1"].[&"OracleView4"] COUNTRYTP
+ ON CUST.COUNTRY_TP_CD=COUNTRYTP.COUNTRY_TP_CD
+ LEFT OUTER JOIN [&"OracleSchema1"].[&"OracleView5"] SOURCEIDENTTP
+ ON CUST.SOURCE_SYSTEM_TP_CD=SOURCEIDENTTP.SOURCE_IDENT_TP_CD
+WHERE CUST.UPDATE_TIMESTAMP < TO_TIMESTAMP(\\'[&"CycleStartDt"]\\',\\'DD-MM-YY HH24:MI:SS.ff\\')
+ ORDER BY CUST.CASL_ID,CUST.UPDATE_TIMESTAMP]]><ReadFromFileSelect modified=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[[&"OracleSchema1"].[&"OracleView5"]]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[UPDATE_TIMESTAMP,UPDATE_TIMESTAMP,CUST]]></Column><Column type=\\'string\\'><![CDATA[CUSTOMER_SRC_SYSTEM_NM,NAME,CUST]]></Column><Column type=\\'string\\'><![CDATA[COMPANY_NM,COMPANY_NAME,CUST]]></Column><Column type=\\'string\\'><![CDATA[CITY_NM,CITY_NAME,CUST]]></Column><Column type=\\'string\\'><![CDATA[COUNTRY_NM,NAME,CUST]]></Column><Column type=\\'string\\'><![CDATA[PROV_STATE_CD,NAME,CUST]]></Column><Column type=\\'string\\'><![CDATA[POSTAL_CD,POSTAL_CODE,CUST]]></Column><Column type=\\'string\\'><![CDATA[ADDR_LINE_THREE,ADDR_LINE_THREE,CUST]]></Column><Column type=\\'string\\'><![CDATA[ADDR_LINE_TWO,ADDR_LINE_TWO,CUST]]></Column><Column type=\\'string\\'><![CDATA[ADDR_LINE_ONE,ADDR_LINE_ONE,CUST]]></Column><Column type=\\'string\\'><![CDATA[CONTACT_PHONE_NO,CONTACT_NUMBER,CUST]]></Column><Column type=\\'string\\'><![CDATA[LAST_NM,LAST_NAME,CUST]]></Column><Column type=\\'string\\'><![CDATA[FIRST_NM,FIRST_NAME,CUST]]></Column><Column type=\\'string\\'><![CDATA[CASL_TYP,NAME,CUST]]></Column><Column type=\\'string\\'><![CDATA[ACCOUNT_CMF_UPDT_TMSTMP,UPDATE_TIMESTAMP,CUST]]></Column><Column type=\\'string\\'><![CDATA[CASL_ID,CASL_ID,CUST]]></Column></Columns><WhereClause type=\\'string\\'><![CDATA[CUST.UPDATE_TIMESTAMP < TO_TIMESTAMP(\\'[&"CycleStartDt"]\\', \\'DD-MM-YY HH24:MI:SS.ff\\')]]></WhereClause><OtherClause type=\\'string\\'><![CDATA[ ORDER BY CUST.CASL_ID ASC, CUST.UPDATE_TIMESTAMP ASC]]></OtherClause></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' modified=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' modified=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'11g\\', 
+   library=ccora11g, 
+   version=1.0, 
+   variantlist=\\'V1;11:"11g":ccora11g;12:"12c":ccora12c\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSIsKey={CASL_ID=1}, 
+      DSDisplayWidth={CASL_ID=19, CUSTOMER_CMF_UPDT_TMSTMP=26, CASL_TYP=30, FIRST_NM=254, LAST_NM=254, CONTACT_PHONE_NO=10, ADDR_LINE_ONE=50, ADDR_LINE_TWO=50, ADDR_LINE_THREE=50, POSTAL_CD=20, PROV_STATE_CD=2, COUNTRY_NM=20, CITY_NM=50, COMPANY_NM=150, CUSTOMER_SRC_SYSTEM_NM=30}, 
+      DSSQLType={CASL_ID=12, CUSTOMER_CMF_UPDT_TMSTMP=11, CASL_TYP=12, FIRST_NM=12, LAST_NM=12, CONTACT_PHONE_NO=12, ADDR_LINE_ONE=12, ADDR_LINE_TWO=12, ADDR_LINE_THREE=12, POSTAL_CD=12, PROV_STATE_CD=12, COUNTRY_NM=12, CITY_NM=12, COMPANY_NM=12, CUSTOMER_SRC_SYSTEM_NM=12}, 
+      DSSQLPrecision={CASL_ID=19, CUSTOMER_CMF_UPDT_TMSTMP=26, CASL_TYP=30, FIRST_NM=254, LAST_NM=254, CONTACT_PHONE_NO=10, ADDR_LINE_ONE=50, ADDR_LINE_TWO=50, ADDR_LINE_THREE=50, POSTAL_CD=20, PROV_STATE_CD=2, COUNTRY_NM=20, CITY_NM=50, COMPANY_NM=150, CUSTOMER_SRC_SYSTEM_NM=30}, 
+      DSSQLScale={CUSTOMER_CMF_UPDT_TMSTMP=6}, 
+      DSNativeType={CASL_ID=\\'VARCHAR\\', CUSTOMER_CMF_UPDT_TMSTMP=\\'TIMESTAMP\\', CASL_TYP=\\'VARCHAR\\', FIRST_NM=\\'VARCHAR\\', LAST_NM=\\'VARCHAR\\', CONTACT_PHONE_NO=\\'VARCHAR\\', ADDR_LINE_ONE=\\'VARCHAR\\', ADDR_LINE_TWO=\\'VARCHAR\\', ADDR_LINE_THREE=\\'VARCHAR\\', POSTAL_CD=\\'VARCHAR\\', COUNTRY_NM=\\'VARCHAR\\', CITY_NM=\\'VARCHAR\\', COMPANY_NM=\\'VARCHAR\\', CUSTOMER_SRC_SYSTEM_NM=\\'VARCHAR\\'}, 
+      DSSchema=\\'record
+         (
+           CASL_ID\\:string\\[max\\=19\\]\\;
+           CUSTOMER_CMF_UPDT_TMSTMP\\:timestamp\\[microseconds\\]\\;
+           CASL_TYP\\:nullable string\\[max\\=30\\]\\;
+           FIRST_NM\\:nullable string\\[max\\=254\\]\\;
+           LAST_NM\\:nullable string\\[max\\=254\\]\\;
+           CONTACT_PHONE_NO\\:nullable string\\[max\\=10\\]\\;
+           ADDR_LINE_ONE\\:nullable string\\[max\\=50\\]\\;
+           ADDR_LINE_TWO\\:nullable string\\[max\\=50\\]\\;
+           ADDR_LINE_THREE\\:nullable string\\[max\\=50\\]\\;
+           POSTAL_CD\\:nullable string\\[max\\=20\\]\\;
+           PROV_STATE_CD\\:nullable string\\[max\\=2\\]\\;
+           COUNTRY_NM\\:nullable string\\[max\\=20\\]\\;
+           CITY_NM\\:nullable string\\[max\\=50\\]\\;
+           COMPANY_NM\\:nullable string\\[max\\=150\\]\\;
+           CUSTOMER_SRC_SYSTEM_NM\\:nullable string\\[max\\=30\\]\\;
+         )\\'
+}'
+   
+
+## General options
+[ident('EDWFEED_CASL_CUSTOMER'); jobmon_ident('EDWFEED_CASL_CUSTOMER')]
+## Outputs
+0> [modify (
+  CASL_ID:not_nullable string[max=19]=CASL_ID;
+  CUSTOMER_CMF_UPDT_TMSTMP:not_nullable timestamp[microseconds]=CUSTOMER_CMF_UPDT_TMSTMP;
+  CASL_TYP:nullable string[max=30]=CASL_TYP;
+  FIRST_NM:nullable string[max=254]=FIRST_NM;
+  LAST_NM:nullable string[max=254]=LAST_NM;
+  CONTACT_PHONE_NO:nullable string[max=10]=CONTACT_PHONE_NO;
+  ADDR_LINE_ONE:nullable string[max=50]=ADDR_LINE_ONE;
+  ADDR_LINE_TWO:nullable string[max=50]=ADDR_LINE_TWO;
+  ADDR_LINE_THREE:nullable string[max=50]=ADDR_LINE_THREE;
+  POSTAL_CD:nullable string[max=20]=POSTAL_CD;
+  PROV_STATE_CD:nullable string[max=2]=PROV_STATE_CD;
+  COUNTRY_NM:nullable string[max=20]=COUNTRY_NM;
+  CITY_NM:nullable string[max=50]=CITY_NM;
+  COMPANY_NM:nullable string[max=150]=COMPANY_NM;
+  CUSTOMER_SRC_SYSTEM_NM:nullable string[max=30]=CUSTOMER_SRC_SYSTEM_NM;
+keep
+  CASL_ID,CUSTOMER_CMF_UPDT_TMSTMP,CASL_TYP,FIRST_NM,
+  LAST_NM,CONTACT_PHONE_NO,ADDR_LINE_ONE,ADDR_LINE_TWO,
+  ADDR_LINE_THREE,POSTAL_CD,PROV_STATE_CD,COUNTRY_NM,
+  CITY_NM,COMPANY_NM,CUSTOMER_SRC_SYSTEM_NM;
+)] 'EDWFEED_CASL_CUSTOMER:EDWFEED_CASL_CUSTOMER_Data.v'
+;
+
+#################################################################
+#### STAGE: EDWFEED_CASL_CUSTOMER_TRX
+## Operator
+transform
+## Operator options
+-flag run
+-name 'V0S1_CASLDly010CustomerXpt_EDWFEED_CASL_CUSTOMER_TRX'
+
+## General options
+[ident('EDWFEED_CASL_CUSTOMER_TRX'); jobmon_ident('EDWFEED_CASL_CUSTOMER_TRX')]
+## Inputs
+0< [] 'EDWFEED_CASL_CUSTOMER:EDWFEED_CASL_CUSTOMER_Data.v'
+## Outputs
+0> [] 'EDWFEED_CASL_CUSTOMER_TRX:EDWFEED_CASL_CUSTOMER_Exp_Data.v'
+;
+
+#################################################################
+#### STAGE: TempVCMF_CASL_CUSTOMER_Exp_Data
+## Operator
+export
+## Operator options
+-schema record
+  {final_delim=end, delim='|', null_field=''}
+(
+  CASL_ID:string[max=19];
+  CUSTOMER_CMF_UPDT_TMSTMP:timestamp[microseconds];
+  CASL_TYP:nullable string[max=30];
+  FIRST_NM:nullable string[max=254];
+  LAST_NM:nullable string[max=254];
+  CONTACT_PHONE_NO:nullable string[max=10];
+  ADDR_LINE_ONE:nullable string[max=50];
+  ADDR_LINE_TWO:nullable string[max=50];
+  ADDR_LINE_THREE:nullable string[max=50];
+  POSTAL_CD:nullable string[max=20];
+  PROV_STATE_CD:nullable string[max=2];
+  COUNTRY_NM:nullable string[max=20];
+  CITY_NM:nullable string[max=50];
+  COMPANY_NM:nullable string[max=150];
+  CUSTOMER_SRC_SYSTEM_NM:nullable string[max=30];
+  MOD_DT_TM:timestamp[microseconds];
+)
+-file '[&"FilePath"]/processing/[&"ThisJob"]_CMFCustomerData_[&"FileSequenceNumber"]'
+-overwrite
+-rejects continue
+
+## General options
+[ident('TempVCMF_CASL_CUSTOMER_Exp_Data'); jobmon_ident('TempVCMF_CASL_CUSTOMER_Exp_Data')]
+## Inputs
+0< [] 'EDWFEED_CASL_CUSTOMER_TRX:EDWFEED_CASL_CUSTOMER_Exp_Data.v'
+;
+
+
+=+=+=+=
+      IsTemplate "0"
+      NLSLocale ",,,,"
+      JobType "3"
+      Category "\\Jobs\\CASL\\Dly"
+      CenturyBreakYear "30"
+      NextAliasID "2"
+      ParameterFileDDName "DD00001"
+      ReservedWordCheck "1"
+      TransactionSize "0"
+      ValidationStatus "0"
+      Uploadable "0"
+      PgmCustomizationFlag "0"
+      JobReportFlag "0"
+      AllowMultipleInvocations "0"
+      Act2ActOverideDefaults "0"
+      Act2ActEnableRowBuffer "0"
+      Act2ActUseIPC "0"
+      Act2ActBufferSize "0"
+      Act2ActIPCTimeout "0"
+      ExpressionSemanticCheckFlag "0"
+      TraceOption "0"
+      EnableCacheSharing "0"
+      RuntimeColumnPropagation "0"
+      RelStagesInJobStatus "-1"
+      WebServiceEnabled "0"
+      MFProcessMetaData "0"
+      MFProcessMetaDataXMLFileExchangeMethod "0"
+      IMSProgType "0"
+      CopyLibPrefix "ARDT"
+      RecordPerformanceResults "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0"
+      OLEType "CContainerView"
+      Readonly "0"
+      Name "Job"
+      NextID "1"
+      IsTopLevel "0"
+      StageList "V0S0|V0S1|V0S2|V0A5"
+      StageXPos "192|480|816|286"
+      StageYPos "312|312|312|85"
+      StageTypes "CCustomStage.CC_GUI|CTransformerStage|CCustomStage|ID_PALETTEJOBANNOTATION"
+      NextStageID "6"
+      SnapToGrid "1"
+      GridLines "0"
+      ZoomValue "100"
+      StageXSize "48|48|48|462"
+      StageYSize "48|48|48|202"
+      ContainerViewSizing "0000 0000 0916 0506 0000 0001 0080 0000"
+      StageNames "EDWFEED_CASL_CUSTOMER|EDWFEED_CASL_CUSTOMER_TRX|TempVCMF_CASL_CUSTOMER_Exp_Data| "
+      StageTypeIDs "OracleConnectorPX|CTransformerStage|PxSequentialFile| "
+      LinkNames "EDWFEED_CASL_CUSTOMER_Data|EDWFEED_CASL_CUSTOMER_Exp_Data| | "
+      LinkHasMetaDatas "True|True| | "
+      LinkTypes "1|1| | "
+      LinkNamePositionXs "256|544| | "
+      LinkNamePositionYs "336|336| | "
+      TargetStageIDs "V0S1|V0S2| | "
+      SourceStageEffectiveExecutionModes "2|2| | "
+      SourceStageRuntimeExecutionModes "2|2| | "
+      TargetStageEffectiveExecutionModes "2|1| | "
+      TargetStageRuntimeExecutionModes "2|1| | "
+      LinkIsSingleOperatorLookup "False|False| | "
+      LinkIsSortSequential "False|False| | "
+      LinkSortMode "0|0| | "
+      LinkPartColMode "1|1| | "
+      LinkSourcePinIDs "V0S0P1|V0S1P2| | "
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0A5"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V0A5"
+      NextID "0"
+      AnnotationType "2"
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "1"
+      TextVerticalJustification "1"
+      TextColor "0"
+      BackgroundColor "12713983"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S0"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "EDWFEED_CASL_CUSTOMER"
+      NextID "2"
+      OutputPins "V0S0P1"
+      StageType "OracleConnectorPX"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariants"
+         Value "V1;11:\"11g\":ccora11g;12:\"12c\":ccora12c"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsLibraries"
+         Value "ccora10g,ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsVersions"
+         Value "1.0,1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Orientation"
+         Value "link"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Engine"
+         Value "EE"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Context"
+         Value "source"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectionString"
+         Value "/Connection/Server"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Username"
+         Value "/Connection/Username"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Password"
+         Value "/Connection/Password"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "xaoDbName"
+         Value "/Connection/xaoDbName"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OSLevelAuthentication"
+         Value "/Connection/OSLevelAuthentication"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+         Value =+=+=+=
+<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>11g</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#Oracle_ServiceNM#]]></Server><Username modified='1' type='string'><![CDATA[#OracleUserId#]]></Username><Password modified='1' type='string'><![CDATA[#OraclePassword#]]></Password><OSLevelAuthentication modified='1' type='bool'><![CDATA[0]]></OSLevelAuthentication><Version modified='1' type='string'><![CDATA[11g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT 
+ CUST.CASL_ID, 
+ CUST.UPDATE_TIMESTAMP AS ACCOUNT_CMF_UPDT_TMSTMP,
+  CLIENTPOTENTP.NAME AS CASL_TYP, 
+ CUST.FIRST_NAME AS FIRST_NM, 
+ CUST.LAST_NAME AS LAST_NM, 
+ CUST.CONTACT_NUMBER AS CONTACT_PHONE_NO, 
+ CUST.ADDR_LINE_ONE, 
+ CUST.ADDR_LINE_TWO, 
+ CUST.ADDR_LINE_THREE, 
+ CUST.POSTAL_CODE AS POSTAL_CD, 
+ PROVSTATETP.NAME AS PROV_STATE_CD, 
+ COUNTRYTP.NAME AS COUNTRY_NM, 
+ CUST.CITY_NAME AS CITY_NM, 
+ CUST.COMPANY_NAME AS COMPANY_NM, 
+ SOURCEIDENTTP.NAME AS CUSTOMER_SRC_SYSTEM_NM
+FROM #OracleSchema#.#OracleView1# CUST
+ LEFT OUTER JOIN #OracleSchema1#.#OracleView2# CLIENTPOTENTP
+ ON CUST.CASL_TYPE_TP_CD=CLIENTPOTENTP.CLIENT_POTEN_TP_CD
+ LEFT OUTER JOIN #OracleSchema1#.#OracleView3# PROVSTATETP
+ ON CUST.PROV_STATE_TP_CD=PROVSTATETP.PROV_STATE_TP_CD
+ LEFT OUTER JOIN #OracleSchema1#.#OracleView4# COUNTRYTP
+ ON CUST.COUNTRY_TP_CD=COUNTRYTP.COUNTRY_TP_CD
+ LEFT OUTER JOIN #OracleSchema1#.#OracleView5# SOURCEIDENTTP
+ ON CUST.SOURCE_SYSTEM_TP_CD=SOURCEIDENTTP.SOURCE_IDENT_TP_CD
+WHERE CUST.UPDATE_TIMESTAMP < TO_TIMESTAMP('#CycleStartDt#','DD-MM-YY HH24:MI:SS.ff')
+ ORDER BY CUST.CASL_ID,CUST.UPDATE_TIMESTAMP]]><ReadFromFileSelect modified='1' type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[#OracleSchema1#.#OracleView5#]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[UPDATE_TIMESTAMP,UPDATE_TIMESTAMP,CUST]]></Column><Column type='string'><![CDATA[CUSTOMER_SRC_SYSTEM_NM,NAME,CUST]]></Column><Column type='string'><![CDATA[COMPANY_NM,COMPANY_NAME,CUST]]></Column><Column type='string'><![CDATA[CITY_NM,CITY_NAME,CUST]]></Column><Column type='string'><![CDATA[COUNTRY_NM,NAME,CUST]]></Column><Column type='string'><![CDATA[PROV_STATE_CD,NAME,CUST]]></Column><Column type='string'><![CDATA[POSTAL_CD,POSTAL_CODE,CUST]]></Column><Column type='string'><![CDATA[ADDR_LINE_THREE,ADDR_LINE_THREE,CUST]]></Column><Column type='string'><![CDATA[ADDR_LINE_TWO,ADDR_LINE_TWO,CUST]]></Column><Column type='string'><![CDATA[ADDR_LINE_ONE,ADDR_LINE_ONE,CUST]]></Column><Column type='string'><![CDATA[CONTACT_PHONE_NO,CONTACT_NUMBER,CUST]]></Column><Column type='string'><![CDATA[LAST_NM,LAST_NAME,CUST]]></Column><Column type='string'><![CDATA[FIRST_NM,FIRST_NAME,CUST]]></Column><Column type='string'><![CDATA[CASL_TYP,NAME,CUST]]></Column><Column type='string'><![CDATA[ACCOUNT_CMF_UPDT_TMSTMP,UPDATE_TIMESTAMP,CUST]]></Column><Column type='string'><![CDATA[CASL_ID,CASL_ID,CUST]]></Column></Columns><WhereClause type='string'><![CDATA[CUST.UPDATE_TIMESTAMP < TO_TIMESTAMP('#CycleStartDt#', 'DD-MM-YY HH24:MI:SS.ff')]]></WhereClause><OtherClause type='string'><![CDATA[ ORDER BY CUST.CASL_ID ASC, CUST.UPDATE_TIMESTAMP ASC]]></OtherClause></SelectStatement></SQL><EnablePartitionedReads collapsed='1' modified='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' modified='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RACName"
+         Value "/Connection/RACName"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S0P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "EDWFEED_CASL_CUSTOMER_Data"
+      Partner "V0S1|V0S1P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "lookup\\type"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "CASL_ID"
+         SqlType "12"
+         Precision "19"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "19"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "1"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CASL_ID"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CUSTOMER_CMF_UPDT_TMSTMP"
+         SqlType "11"
+         Precision "26"
+         Scale "6"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "26"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "2"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "TIMESTAMP"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CUSTOMER_CMF_UPDT_TMSTMP"
+         ExtendedPrecision "1"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CASL_TYP"
+         SqlType "12"
+         Precision "30"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "30"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "3"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CASL_TYP"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "FIRST_NM"
+         SqlType "12"
+         Precision "254"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "254"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "4"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "FIRST_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "LAST_NM"
+         SqlType "12"
+         Precision "254"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "254"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "5"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "LAST_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CONTACT_PHONE_NO"
+         SqlType "12"
+         Precision "10"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "10"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "6"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CONTACT_PHONE_NO"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ADDR_LINE_ONE"
+         SqlType "12"
+         Precision "50"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "50"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "7"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "ADDR_LINE_ONE"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ADDR_LINE_TWO"
+         SqlType "12"
+         Precision "50"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "50"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "8"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "ADDR_LINE_TWO"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ADDR_LINE_THREE"
+         SqlType "12"
+         Precision "50"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "50"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "9"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "ADDR_LINE_THREE"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "POSTAL_CD"
+         SqlType "12"
+         Precision "20"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "20"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "10"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "POSTAL_CD"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "PROV_STATE_CD"
+         SqlType "12"
+         Precision "2"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "2"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "11"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "PROV_STATE_CD"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "COUNTRY_NM"
+         SqlType "12"
+         Precision "20"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "20"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "12"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "COUNTRY_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CITY_NM"
+         SqlType "12"
+         Precision "50"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "50"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "13"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CITY_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "COMPANY_NM"
+         SqlType "12"
+         Precision "150"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "150"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "14"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "COMPANY_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CUSTOMER_SRC_SYSTEM_NM"
+         SqlType "12"
+         Precision "30"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "30"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "15"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CUSTOMER_SRC_SYSTEM_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+      END DSSUBRECORD
+      LeftTextPos "256"
+      TopTextPos "336"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S1"
+      OLEType "CTransformerStage"
+      Readonly "0"
+      Name "EDWFEED_CASL_CUSTOMER_TRX"
+      NextID "3"
+      InputPins "V0S1P1"
+      OutputPins "V0S1P2"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCode"
+         Value =+=+=+=
+//
+// Generated file to implement the V0S1_CASLDly010CustomerXpt_EDWFEED_CASL_CUSTOMER_TRX transform operator.
+//
+
+// define our input/output link names
+inputname 0 EDWFEED_CASL_CUSTOMER_Data;
+outputname 0 EDWFEED_CASL_CUSTOMER_Exp_Data;
+
+initialize {
+ // define our control variables
+ int8 RowRejected0;
+ int8 NullSetVar0;
+
+ // declare our intermediate variables for this section
+ string InterVar0_0;
+
+ // initialise constant values which require conversion
+ InterVar0_0 = "";
+}
+
+mainloop {
+
+ // initialise the rejected row variable
+ RowRejected0 = 1;
+
+ // evaluate columns (no constraints) for link: EDWFEED_CASL_CUSTOMER_Exp_Data
+ if (null(EDWFEED_CASL_CUSTOMER_Data.CASL_TYP)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.CASL_TYP = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.CASL_TYP = EDWFEED_CASL_CUSTOMER_Data.CASL_TYP;
+ }
+ //;
+ if (null(EDWFEED_CASL_CUSTOMER_Data.FIRST_NM)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.FIRST_NM = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.FIRST_NM = EDWFEED_CASL_CUSTOMER_Data.FIRST_NM;
+ }
+ //;
+ if (null(EDWFEED_CASL_CUSTOMER_Data.LAST_NM)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.LAST_NM = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.LAST_NM = EDWFEED_CASL_CUSTOMER_Data.LAST_NM;
+ }
+ //;
+ if (null(EDWFEED_CASL_CUSTOMER_Data.CONTACT_PHONE_NO)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.CONTACT_PHONE_NO = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.CONTACT_PHONE_NO = EDWFEED_CASL_CUSTOMER_Data.CONTACT_PHONE_NO;
+ }
+ //;
+ if (null(EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_ONE)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.ADDR_LINE_ONE = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.ADDR_LINE_ONE = EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_ONE;
+ }
+ //;
+ if (null(EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_TWO)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.ADDR_LINE_TWO = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.ADDR_LINE_TWO = EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_TWO;
+ }
+ //;
+ if (null(EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_THREE)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.ADDR_LINE_THREE = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.ADDR_LINE_THREE = EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_THREE;
+ }
+ //;
+ if (null(EDWFEED_CASL_CUSTOMER_Data.POSTAL_CD)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.POSTAL_CD = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.POSTAL_CD = EDWFEED_CASL_CUSTOMER_Data.POSTAL_CD;
+ }
+ //;
+ if (null(EDWFEED_CASL_CUSTOMER_Data.PROV_STATE_CD)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.PROV_STATE_CD = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.PROV_STATE_CD = EDWFEED_CASL_CUSTOMER_Data.PROV_STATE_CD;
+ }
+ //;
+ if (null(EDWFEED_CASL_CUSTOMER_Data.COUNTRY_NM)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.COUNTRY_NM = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.COUNTRY_NM = EDWFEED_CASL_CUSTOMER_Data.COUNTRY_NM;
+ }
+ //;
+ if (null(EDWFEED_CASL_CUSTOMER_Data.CITY_NM)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.CITY_NM = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.CITY_NM = EDWFEED_CASL_CUSTOMER_Data.CITY_NM;
+ }
+ //;
+ if (null(EDWFEED_CASL_CUSTOMER_Data.COMPANY_NM)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.COMPANY_NM = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.COMPANY_NM = EDWFEED_CASL_CUSTOMER_Data.COMPANY_NM;
+ }
+ //;
+ if (null(EDWFEED_CASL_CUSTOMER_Data.CUSTOMER_SRC_SYSTEM_NM)) {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.CUSTOMER_SRC_SYSTEM_NM = InterVar0_0;
+ } else {
+  EDWFEED_CASL_CUSTOMER_Exp_Data.CUSTOMER_SRC_SYSTEM_NM = EDWFEED_CASL_CUSTOMER_Data.CUSTOMER_SRC_SYSTEM_NM;
+ }
+ //;
+ EDWFEED_CASL_CUSTOMER_Exp_Data.MOD_DT_TM = current_timestamp();
+ writerecord 0;
+ RowRejected0 = 0;
+}
+
+finish {
+}
+
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCache"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxClassName"
+         Value "V0S1_CASLDly010CustomerXpt_EDWFEED_CASL_CUSTOMER_TRX"
+      END DSSUBRECORD
+      ValidationStatus "0"
+      StageType "CTransformerStage"
+      BlockSize "0"
+      StageVarsMinimised "0"
+      LoopVarsMaximised "0"
+      MaxLoopIterations "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S1P1"
+      OLEType "CTrxInput"
+      Readonly "0"
+      Name "EDWFEED_CASL_CUSTOMER_Data"
+      Partner "V0S0|V0S0P1"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  CASL_ID:string[max=19];
+  CUSTOMER_CMF_UPDT_TMSTMP:timestamp[microseconds];
+  CASL_TYP:nullable string[max=30];
+  FIRST_NM:nullable string[max=254];
+  LAST_NM:nullable string[max=254];
+  CONTACT_PHONE_NO:nullable string[max=10];
+  ADDR_LINE_ONE:nullable string[max=50];
+  ADDR_LINE_TWO:nullable string[max=50];
+  ADDR_LINE_THREE:nullable string[max=50];
+  POSTAL_CD:nullable string[max=20];
+  PROV_STATE_CD:nullable string[max=2];
+  COUNTRY_NM:nullable string[max=20];
+  CITY_NM:nullable string[max=50];
+  COMPANY_NM:nullable string[max=150];
+  CUSTOMER_SRC_SYSTEM_NM:nullable string[max=30];
+)
+=+=+=+=
+      END DSSUBRECORD
+      MultiRow "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S1P2"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "EDWFEED_CASL_CUSTOMER_Exp_Data"
+      Partner "V0S2|V0S2P1"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "CASL_ID"
+         SqlType "12"
+         Precision "19"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "19"
+         Derivation "EDWFEED_CASL_CUSTOMER_Data.CASL_ID"
+         Group "0"
+         ParsedDerivation "EDWFEED_CASL_CUSTOMER_Data.CASL_ID"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.CASL_ID"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "1"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CASL_ID"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CUSTOMER_CMF_UPDT_TMSTMP"
+         SqlType "11"
+         Precision "26"
+         Scale "6"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "26"
+         Derivation "EDWFEED_CASL_CUSTOMER_Data.CUSTOMER_CMF_UPDT_TMSTMP"
+         Group "0"
+         ParsedDerivation "EDWFEED_CASL_CUSTOMER_Data.CUSTOMER_CMF_UPDT_TMSTMP"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.CUSTOMER_CMF_UPDT_TMSTMP"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "2"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "TIMESTAMP"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CUSTOMER_CMF_UPDT_TMSTMP"
+         ExtendedPrecision "1"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CASL_TYP"
+         SqlType "12"
+         Precision "30"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "30"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.CASL_TYP) Then '' Else EDWFEED_CASL_CUSTOMER_Data.CASL_TYP"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.CASL_TYP) Then '' Else EDWFEED_CASL_CUSTOMER_Data.CASL_TYP"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.CASL_TYP"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "3"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CASL_TYP"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "FIRST_NM"
+         SqlType "12"
+         Precision "254"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "254"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.FIRST_NM) Then '' Else EDWFEED_CASL_CUSTOMER_Data.FIRST_NM"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.FIRST_NM) Then '' Else EDWFEED_CASL_CUSTOMER_Data.FIRST_NM"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.FIRST_NM"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "4"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "FIRST_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "LAST_NM"
+         SqlType "12"
+         Precision "254"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "254"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.LAST_NM) Then '' Else EDWFEED_CASL_CUSTOMER_Data.LAST_NM"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.LAST_NM) Then '' Else EDWFEED_CASL_CUSTOMER_Data.LAST_NM"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.LAST_NM"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "5"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "LAST_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CONTACT_PHONE_NO"
+         SqlType "12"
+         Precision "10"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "10"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.CONTACT_PHONE_NO) Then '' Else EDWFEED_CASL_CUSTOMER_Data.CONTACT_PHONE_NO"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.CONTACT_PHONE_NO) Then '' Else EDWFEED_CASL_CUSTOMER_Data.CONTACT_PHONE_NO"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.CONTACT_PHONE_NO"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "6"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CONTACT_PHONE_NO"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ADDR_LINE_ONE"
+         SqlType "12"
+         Precision "50"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "50"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_ONE) Then '' Else EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_ONE"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_ONE) Then '' Else EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_ONE"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_ONE"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "7"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "ADDR_LINE_ONE"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ADDR_LINE_TWO"
+         SqlType "12"
+         Precision "50"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "50"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_TWO) Then '' Else EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_TWO"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_TWO) Then '' Else EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_TWO"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_TWO"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "8"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "ADDR_LINE_TWO"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ADDR_LINE_THREE"
+         SqlType "12"
+         Precision "50"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "50"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_THREE) Then '' Else EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_THREE"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_THREE) Then '' Else EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_THREE"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.ADDR_LINE_THREE"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "9"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "ADDR_LINE_THREE"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "POSTAL_CD"
+         SqlType "12"
+         Precision "20"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "20"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.POSTAL_CD) Then '' Else EDWFEED_CASL_CUSTOMER_Data.POSTAL_CD"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.POSTAL_CD) Then '' Else EDWFEED_CASL_CUSTOMER_Data.POSTAL_CD"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.POSTAL_CD"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "10"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "POSTAL_CD"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "PROV_STATE_CD"
+         SqlType "12"
+         Precision "2"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "2"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.PROV_STATE_CD) Then '' Else EDWFEED_CASL_CUSTOMER_Data.PROV_STATE_CD"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.PROV_STATE_CD) Then '' Else EDWFEED_CASL_CUSTOMER_Data.PROV_STATE_CD"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.PROV_STATE_CD"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "11"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "PROV_STATE_CD"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "COUNTRY_NM"
+         SqlType "12"
+         Precision "20"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "20"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.COUNTRY_NM) Then '' Else EDWFEED_CASL_CUSTOMER_Data.COUNTRY_NM"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.COUNTRY_NM) Then '' Else EDWFEED_CASL_CUSTOMER_Data.COUNTRY_NM"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.COUNTRY_NM"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "12"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "COUNTRY_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CITY_NM"
+         SqlType "12"
+         Precision "50"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "50"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.CITY_NM) Then '' Else EDWFEED_CASL_CUSTOMER_Data.CITY_NM"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.CITY_NM) Then '' Else EDWFEED_CASL_CUSTOMER_Data.CITY_NM"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.CITY_NM"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "13"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CITY_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "COMPANY_NM"
+         SqlType "12"
+         Precision "150"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "150"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.COMPANY_NM) Then '' Else EDWFEED_CASL_CUSTOMER_Data.COMPANY_NM"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.COMPANY_NM) Then '' Else EDWFEED_CASL_CUSTOMER_Data.COMPANY_NM"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.COMPANY_NM"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "14"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "COMPANY_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CUSTOMER_SRC_SYSTEM_NM"
+         SqlType "12"
+         Precision "30"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "30"
+         Derivation "If IsNull(EDWFEED_CASL_CUSTOMER_Data.CUSTOMER_SRC_SYSTEM_NM) Then '' Else EDWFEED_CASL_CUSTOMER_Data.CUSTOMER_SRC_SYSTEM_NM"
+         Group "0"
+         ParsedDerivation " If IsNull(EDWFEED_CASL_CUSTOMER_Data.CUSTOMER_SRC_SYSTEM_NM) Then '' Else EDWFEED_CASL_CUSTOMER_Data.CUSTOMER_SRC_SYSTEM_NM"
+         SourceColumn "EDWFEED_CASL_CUSTOMER_Data.CUSTOMER_SRC_SYSTEM_NM"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "15"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CUSTOMER_SRC_SYSTEM_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "MOD_DT_TM"
+         SqlType "11"
+         Precision "26"
+         Scale "6"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "26"
+         Derivation "CurrentTimestamp()"
+         Group "0"
+         ParsedDerivation "CurrentTimestamp()"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\CBP_UTST_ETLBASE.__035__VCMF_CASL_CUSTOMER_EXT"
+         FieldPos "16"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "TIMESTAMP"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "MOD_DT_TM"
+         ExtendedPrecision "1"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  CASL_ID:string[max=19];
+  CUSTOMER_CMF_UPDT_TMSTMP:timestamp[microseconds];
+  CASL_TYP:nullable string[max=30];
+  FIRST_NM:nullable string[max=254];
+  LAST_NM:nullable string[max=254];
+  CONTACT_PHONE_NO:nullable string[max=10];
+  ADDR_LINE_ONE:nullable string[max=50];
+  ADDR_LINE_TWO:nullable string[max=50];
+  ADDR_LINE_THREE:nullable string[max=50];
+  POSTAL_CD:nullable string[max=20];
+  PROV_STATE_CD:nullable string[max=2];
+  COUNTRY_NM:nullable string[max=20];
+  CITY_NM:nullable string[max=50];
+  COMPANY_NM:nullable string[max=150];
+  CUSTOMER_SRC_SYSTEM_NM:nullable string[max=30];
+  MOD_DT_TM:timestamp[microseconds];
+)
+=+=+=+=
+      END DSSUBRECORD
+      LeftTextPos "544"
+      TopTextPos "336"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S2"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "TempVCMF_CASL_CUSTOMER_Exp_Data"
+      NextID "2"
+      InputPins "V0S2P1"
+      StageType "PxSequentialFile"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S2P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "EDWFEED_CASL_CUSTOMER_Exp_Data"
+      Partner "V0S1|V0S1P2"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "schema"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "file"
+         Value "\(2)\(2)0\(1)\(3)file\(2)#FilePath#/processing/#ThisJob#_CMFCustomerData_#FileSequenceNumber#\(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "append\\overwrite"
+         Value "overwrite"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "nocleanup"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "rejects"
+         Value "continue"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "firstLineColumnNames"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "writemethod"
+         Value "\(2)\(2)0\(1)\(3)writemethod\(2) \(2)0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+         Value "final_delim=end, delim='|', null_field=''"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+END DSJOB

@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  dsx-doc-assistant:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - DSX_API_KEY=${DSX_API_KEY}
+      - DSX_MODEL=${DSX_MODEL:-openai/text-embedding-3-small}
+      - DSX_BASE_URL=${DSX_BASE_URL:-https://openrouter.ai/api/v1}
+      - DSX_PROVIDER=${DSX_PROVIDER:-openrouter}
+    volumes:
+      # Persist the SQLite database
+      - ./data:/app/data
+      # Optional: mount dsx_files for easy updates
+      - ./dsx_files:/app/dsx_files
+    restart: unless-stopped

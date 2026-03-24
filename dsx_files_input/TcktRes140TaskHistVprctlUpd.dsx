@@ -1,0 +1,745 @@
+BEGIN HEADER
+   CharacterSet "CP1252"
+   ExportingTool "IBM InfoSphere DataStage Export"
+   ToolVersion "8"
+   ServerName "CDOPLA-129-000"
+   ToolInstanceID "tcktresprod"
+   MDISVersion "1.0"
+   Date "2023-12-02"
+   Time "17.42.13"
+   ServerVersion "11.7"
+END HEADER
+BEGIN DSJOB
+   Identifier "TcktRes140TaskHistVprctlUpd"
+   DateModified "2023-12-02"
+   TimeModified "15.41.15"
+   BEGIN DSRECORD
+      Identifier "ROOT"
+      OLEType "CJobDefn"
+      Readonly "0"
+      Name "TcktRes140TaskHistVprctlUpd"
+      Description "This DataStage job is designed to update the VPROCCTL table for the process ACUT_EDW_PROCESS &ACUT_TASK_HIST_STRT_DT."
+      NextID "51"
+      Container "V0"
+      FullDescription =+=+=+=
+Job Name: TcktRes140TaskHistVprctlUpd
+Project : EDW Ticker Integration ACUT-EDW
+Developer  : Anu - CGI IGDC
+Date :29-Dec-2015
+Description : This DataStage job is designed to update the VPROCCTL table for the process ACUT_EDW_PROCESS &ACUT_TASK_HIST_STRT_DT.
+
+Before routine :None
+After Routine : None
+
+Restart Instructions: Re-Run Job
+
+=+=+=+=
+      JobVersion "56.0.0"
+      ControlAfterSubr "0"
+      Parameters "CParameters"
+      BEGIN DSSUBRECORD
+         Name "TeraDataServerName"
+         Prompt "TeraDataServerName"
+         Default "PROD"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataUserId"
+         Prompt "TeraDataUserId"
+         Default "TCKTRES_PROD"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataPassword"
+         Prompt "TeraDataPassword"
+         ParamType "1"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataViewDB"
+         Prompt "ThisTeraDataViewDB"
+         Default "ETLBASE"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ThisTeraDataView"
+         Prompt "ThisTeraDataView"
+         Default "VPROCCTL"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ProcessNmAcutStrt"
+         Prompt "ProcessNmAcutStrt"
+         Default "ACUT_TASK_HIST_STRT_DT"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ProcessNmAcutEnd"
+         Prompt "ProcessNmAcutEnd"
+         Default "ACUT_EDW_PROCESS"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Acut_Task_Hist_End_Dt"
+         Prompt "Acut_Task_Hist_End_Dt"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Acut_Task_Hist_Strt_Dt"
+         Prompt "Acut_Task_Hist_Strt_Dt"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "AdvancedRuntimeOptions"
+         Value "#DSProjectARTOptions#"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceMode"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceSeq"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceRecords"
+         Value "100"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceSkip"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TracePeriod"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RecordJobPerformanceData"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "IdentList"
+         Value "vprocctl_trasformer|vprocctl_upd|Dummy_Input"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "ClientCodePage"
+         Value "1252"
+      END DSSUBRECORD
+      NULLIndicatorPosition "0"
+      IsTemplate "0"
+      NLSLocale ",,,,"
+      JobType "3"
+      Category "\\Jobs\\Dly"
+      CenturyBreakYear "30"
+      NextAliasID "2"
+      ParameterFileDDName "DD00001"
+      ReservedWordCheck "1"
+      TransactionSize "0"
+      ValidationStatus "0"
+      Uploadable "0"
+      PgmCustomizationFlag "0"
+      JobReportFlag "0"
+      AllowMultipleInvocations "0"
+      Act2ActOverideDefaults "0"
+      Act2ActEnableRowBuffer "0"
+      Act2ActUseIPC "0"
+      Act2ActBufferSize "0"
+      Act2ActIPCTimeout "0"
+      ExpressionSemanticCheckFlag "0"
+      TraceOption "0"
+      EnableCacheSharing "0"
+      RuntimeColumnPropagation "1"
+      RelStagesInJobStatus "-1"
+      WebServiceEnabled "0"
+      MFProcessMetaData "0"
+      MFProcessMetaDataXMLFileExchangeMethod "0"
+      IMSProgType "0"
+      CopyLibPrefix "ARDT"
+      RecordPerformanceResults "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0"
+      OLEType "CContainerView"
+      Readonly "0"
+      Name "Job"
+      NextID "1"
+      IsTopLevel "0"
+      StageList "V0A5|V49S1|V49S2|V50S0"
+      StageXPos "225|408|720|144"
+      StageYPos "0|240|240|240"
+      StageTypes "ID_PALETTEJOBANNOTATION|CTransformerStage|CCustomStage.CC_GUI|CCustomStage"
+      NextStageID "25"
+      SnapToGrid "1"
+      GridLines "0"
+      ZoomValue "100"
+      StageXSize "387|48|48|48"
+      StageYSize "139|48|48|48"
+      ContainerViewSizing "0100 0100 0914 0520 0000 0001 0000 0000"
+      StageNames " |vprocctl_trasformer|vprocctl_upd|Dummy_Input"
+      StageTypeIDs " |CTransformerStage|TeradataConnectorPX|PxRowGenerator"
+      LinkNames " |VdataExtractIns| |Dummy_Data"
+      LinkHasMetaDatas " |True| |True"
+      LinkTypes " |1| |1"
+      LinkNamePositionXs " |569| |263"
+      LinkNamePositionYs " |271| |264"
+      TargetStageIDs " |V49S2| |V49S1"
+      SourceStageEffectiveExecutionModes " |2| |1"
+      SourceStageRuntimeExecutionModes " |2| |1"
+      TargetStageEffectiveExecutionModes " |2| |2"
+      TargetStageRuntimeExecutionModes " |2| |2"
+      LinkIsSingleOperatorLookup " |False| |False"
+      LinkIsSortSequential " |False| |False"
+      LinkSortMode " |0| |0"
+      LinkPartColMode " |1| |1"
+      LinkSourcePinIDs " |V49S1P2| |V50S0P1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0A5"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V0A5"
+      NextID "0"
+      AnnotationType "2"
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "0"
+      TextVerticalJustification "0"
+      TextColor "0"
+      BackgroundColor "12713983"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V49S1"
+      OLEType "CTransformerStage"
+      Readonly "0"
+      Name "vprocctl_trasformer"
+      NextID "5"
+      InputPins "V49S1P3"
+      OutputPins "V49S1P2"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCache"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxClassName"
+         Value "V49S1_TcktRes140TaskHistVprctlUpd_vprocctl_trasformer"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCode"
+         Value =+=+=+=
+//
+// Generated file to implement the V49S1_TcktRes140TaskHistVprctlUpd_vprocctl_trasformer transform operator.
+//
+
+// define our input/output link names
+inputname 0 Dummy_Data;
+outputname 0 VdataExtractIns;
+
+global {
+ // Job parameter declaration
+ ustring[] ProcessNmAcutStrt;
+ ustring[] ProcessNmAcutEnd;
+ ustring[] Acut_Task_Hist_Strt_Dt;
+ ustring[] Acut_Task_Hist_End_Dt;
+}
+
+initialize {
+ // define and initialise our input row count variable
+ uint64 InRowNumber0;
+ InRowNumber0 = 0;
+
+ // define our control variables
+ int8 RowRejected0;
+ int8 NullSetVar0;
+
+ // declare our intermediate variables for this section (1)
+ string InterVar0_2;
+
+ // initialise constant values which require conversion
+ InterVar0_2 = "%yyyy-%mm-%dd %hh:%nn:%ss";
+ // Stage variable declaration and initialisation
+ string StageVar0_PROCESSNM;
+ StageVar0_PROCESSNM = "";
+ timestamp StageVar0_PROCESSEDDTTM;
+ StageVar0_PROCESSEDDTTM = timestamp_from_string("2001-01-01 00:00:01");
+}
+
+mainloop {
+
+ // increment our input row count
+ InRowNumber0 = InRowNumber0 + 1;
+
+ // declare our intermediate variables for this section (2)
+ string InterVar0_0;
+ string InterVar0_1;
+
+ // evaluate the stage variables first
+ if ((InRowNumber0 == 1)) {
+  InterVar0_0 = ProcessNmAcutStrt;
+  StageVar0_PROCESSNM = InterVar0_0;
+ } else {
+  InterVar0_1 = ProcessNmAcutEnd;
+  StageVar0_PROCESSNM = InterVar0_1;
+ }
+ //;
+ if ((InRowNumber0 == 1)) {
+  StageVar0_PROCESSEDDTTM = timestamp_from_ustring(Acut_Task_Hist_Strt_Dt);
+ } else {
+  StageVar0_PROCESSEDDTTM = timestamp_from_ustring(Acut_Task_Hist_End_Dt);
+ }
+ //;
+
+ // initialise the rejected row variable
+ RowRejected0 = 1;
+
+ // evaluate columns (no constraints) for link: VdataExtractIns
+ VdataExtractIns.PROCESS_NM = StageVar0_PROCESSNM;
+ VdataExtractIns.PROCESSED_DT_TM = timestamp_from_ustring(ustring_from_timestamp(StageVar0_PROCESSEDDTTM) , InterVar0_2);
+ writerecord 0;
+ RowRejected0 = 0;
+}
+
+finish {
+}
+
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "JobParameterNames"
+         Value "ProcessNmAcutStrt|ProcessNmAcutEnd|Acut_Task_Hist_Strt_Dt|Acut_Task_Hist_End_Dt"
+      END DSSUBRECORD
+      ValidationStatus "0"
+      StageType "CTransformerStage"
+      BlockSize "0"
+      SKKeySourceType "file"
+      StageVars "CStageVar"
+      BEGIN DSSUBRECORD
+         Name "PROCESSNM"
+         Expression "If @INROWNUM=1 Then ProcessNmAcutStrt Else ProcessNmAcutEnd"
+         SqlType "12"
+         ParsedExpression " If @INROWNUM = 1 Then ProcessNmAcutStrt Else ProcessNmAcutEnd"
+         Precision "40"
+         ColScale "0"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "PROCESSEDDTTM"
+         Expression "If @INROWNUM=1 Then Acut_Task_Hist_Strt_Dt Else Acut_Task_Hist_End_Dt"
+         SqlType "11"
+         ParsedExpression " If @INROWNUM = 1 Then Acut_Task_Hist_Strt_Dt Else Acut_Task_Hist_End_Dt"
+         Precision "19"
+         ColScale "0"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      StageVarsMinimised "0"
+      LoopVarsMaximised "0"
+      MaxLoopIterations "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V49S1P2"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "VdataExtractIns"
+      Partner "V49S2|V49S2P1"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "PROCESS_NM"
+         SqlType "12"
+         Precision "40"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "0"
+         Derivation "PROCESSNM"
+         Group "0"
+         ParsedDerivation "PROCESSNM"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\PRS_VTST_ETLBASE.VPROCCTL"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "VARCHAR"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         StageVars "PROCESSNM"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "PROCESS_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "PROCESSED_DT_TM"
+         SqlType "11"
+         Precision "26"
+         Scale "6"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "StringToTimestamp(PROCESSEDDTTM,\"%yyyy-%mm-%dd %hh:%nn:%ss\")"
+         Group "0"
+         ParsedDerivation "StringToTimestamp(PROCESSEDDTTM, \"%yyyy-%mm-%dd %hh:%nn:%ss\")"
+         SortKey "0"
+         SortType "0"
+         TableDef "Database\\test\\PRS_VTST_ETLBASE.VPROCCTL"
+         AllowCRLF "0"
+         LevelNo "0"
+         NativeType "TIMESTAMP"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         StageVars "PROCESSEDDTTM"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "PROCESSED_DT_TM"
+         ExtendedPrecision "1"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  PROCESS_NM:string[max=40];
+  PROCESSED_DT_TM:timestamp[microseconds];
+)
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SortOrderPreserved"
+         Value "1"
+      END DSSUBRECORD
+      LeftTextPos "569"
+      TopTextPos "271"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V49S1P3"
+      OLEType "CTrxInput"
+      Readonly "0"
+      Name "Dummy_Data"
+      Partner "V50S0|V50S0P1"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  Filler:string[1];
+)
+=+=+=+=
+      END DSSUBRECORD
+      MultiRow "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V49S2"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "vprocctl_upd"
+      NextID "2"
+      InputPins "V49S2P1"
+      StageType "TeradataConnectorPX"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "cctera12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariants"
+         Value "8.1,12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsLibraries"
+         Value "cctera,cctera12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsVersions"
+         Value "1.0,1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Orientation"
+         Value "link"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "TeradataConnector"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Engine"
+         Value "EE"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Context"
+         Value "target"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectionString"
+         Value "/Connection/Server"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Username"
+         Value "/Connection/Username"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Password"
+         Value "/Connection/Password"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+         Value "<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'><![CDATA[2]]></Context><Variant type='string'><![CDATA[12]]></Variant><DescriptorVersion type='string'><![CDATA[1.0]]></DescriptorVersion><PartitionType type='int'><![CDATA[-1]]></PartitionType><RCP type='int'><![CDATA[0]]></RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#TeraDataServerName#]]></Server><Username modified='1' type='string'><![CDATA[#TeraDataUserId#]]></Username><Password modified='1' type='string'><![CDATA[#TeraDataPassword#]]></Password><Database modified='1' type='string'><![CDATA[#TeraDataViewDB#]]></Database><TransactionMode type='int'><![CDATA[1]]></TransactionMode><ClientCharacterSet modified='1' type='string'><![CDATA[ASCII]]></ClientCharacterSet><AutoMapCharsetEncoding modified='1' type='bool'><![CDATA[0]]></AutoMapCharsetEncoding><NLSMapName modified='1' type='string'><![CDATA[ISO-8859-1]]></NLSMapName><MaxBytesPerCharacter modified='1' type='int'><![CDATA[5]]></MaxBytesPerCharacter><SSLMode type='int'><![CDATA[2]]></SSLMode></Connection><Usage><WriteMode modified='1' type='int'><![CDATA[1]]></WriteMode><GenerateSQL modified='1' type='bool'><![CDATA[1]]></GenerateSQL><TableName modified='1' type='string'><![CDATA[#ThisTeraDataView#]]></TableName><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><AccessMethod modified='1' type='int'><![CDATA[1]]></AccessMethod><SQL></SQL><Transaction><RecordCount type='int'><![CDATA[2000]]></RecordCount></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><SchemaReconciliation><UnusedFieldAction modified='1' type='int'><![CDATA[3]]></UnusedFieldAction></SchemaReconciliation><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ImmediateAccess collapsed='1'></ImmediateAccess><LimitSettings collapsed='1'><MaxBufferSize type='int'><![CDATA[0]]></MaxBufferSize><StartRow type='int'><![CDATA[0]]></StartRow><EndRow type='int'><![CDATA[0]]></EndRow><ProgressInterval type='int'><![CDATA[100000]]></ProgressInterval></LimitSettings><ParallelSynchronization collapsed='1' type='bool'><![CDATA[0]]></ParallelSynchronization></Usage></Properties>"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "LogOnMech"
+         Value "/Connection/LogOnMech"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SSLMode"
+         Value "/Connection/SSLMode"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SSLProtocol"
+         Value "/Connection/SSLMode/SSLProtocol"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "UseCert"
+         Value "/Connection/SSLMode/UseCert"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SSLCA"
+         Value "/Connection/SSLMode/UseCert/SSLCA"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V49S2P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "VdataExtractIns"
+      Partner "V49S1|V49S1P2"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "8.1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "cctera"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "TeradataConnector"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V50S0"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "Dummy_Input"
+      NextID "2"
+      OutputPins "V50S0P1"
+      StageType "PxRowGenerator"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V50S0P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "Dummy_Data"
+      Partner "V49S1|V49S1P3"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "schema"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "records"
+         Value "2"
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "Filler"
+         SqlType "1"
+         Precision "1"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "263"
+      TopTextPos "264"
+      LinkMinimised "0"
+   END DSRECORD
+END DSJOB

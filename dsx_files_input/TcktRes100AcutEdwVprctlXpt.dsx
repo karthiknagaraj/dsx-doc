@@ -1,0 +1,539 @@
+BEGIN HEADER
+   CharacterSet "CP1252"
+   ExportingTool "IBM InfoSphere DataStage Export"
+   ToolVersion "8"
+   ServerName "CDOPLA-129-000"
+   ToolInstanceID "tcktresprod"
+   MDISVersion "1.0"
+   Date "2023-12-02"
+   Time "17.44.14"
+   ServerVersion "11.7"
+END HEADER
+BEGIN DSJOB
+   Identifier "TcktRes100AcutEdwVprctlXpt"
+   DateModified "2023-12-02"
+   TimeModified "15.43.47"
+   BEGIN DSRECORD
+      Identifier "ROOT"
+      OLEType "CJobDefn"
+      Readonly "0"
+      Name "TcktRes100AcutEdwVprctlXpt"
+      Description "This job populates the ini Acut_Task_Hist_Strt_Dt for the current run from VPROCCTL."
+      NextID "2"
+      Container "V0"
+      FullDescription =+=+=+=
+Job Name: TcktRes100AcutEdwVprctlXpt
+Project : EDW Ticker Integration ACUT-EDW
+Developer  : Satya - CGI IGDC
+Date :16-Dec-2015
+Description :  This job populates the ini Acut_Task_Hist_Strt_Dt for the current run from VPROCCTL.
+
+=+=+=+=
+      JobVersion "56.0.0"
+      ControlAfterSubr "0"
+      Parameters "CParameters"
+      BEGIN DSSUBRECORD
+         Name "FilePath"
+         Prompt "FilePath"
+         Default "/dstage/dsdata/tcktresprod/"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Acut_Task_Hist_Strt_Dt"
+         Prompt "Acut_Task_Hist_Strt_Dt"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConfigFilePath"
+         Prompt "Config File Path"
+         Default "/dstage/dsdata/tcktresprod/scripts/"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConfigFileName"
+         Prompt "Cinfig File Name"
+         Default "tcktres_params.ini"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataViewDB"
+         Prompt "TeraDataView"
+         Default "ETLBASE"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataUserId"
+         Prompt "TeraDataUserId"
+         Default "TCKTRES_PROD"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataPassword"
+         Prompt "TeraDataPassword"
+         ParamType "1"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "PROCESS_NM"
+         Prompt "PROCESS_NM"
+         Default "ACUT_EDW_PROCESS "
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataServerName"
+         Prompt "TeraDataServerName"
+         Default "PROD"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      NULLIndicatorPosition "0"
+      IsTemplate "0"
+      NLSLocale ",,,,"
+      JobType "0"
+      Category "\\Jobs\\Dly"
+      CenturyBreakYear "30"
+      NextAliasID "2"
+      ParameterFileDDName "DD00001"
+      ReservedWordCheck "1"
+      TransactionSize "0"
+      ValidationStatus "0"
+      Uploadable "0"
+      PgmCustomizationFlag "0"
+      JobReportFlag "0"
+      AllowMultipleInvocations "0"
+      Act2ActOverideDefaults "0"
+      Act2ActEnableRowBuffer "0"
+      Act2ActUseIPC "0"
+      Act2ActBufferSize "0"
+      Act2ActIPCTimeout "0"
+      ExpressionSemanticCheckFlag "0"
+      TraceOption "0"
+      EnableCacheSharing "0"
+      RuntimeColumnPropagation "0"
+      RelStagesInJobStatus "-1"
+      WebServiceEnabled "0"
+      MFProcessMetaData "0"
+      MFProcessMetaDataXMLFileExchangeMethod "0"
+      IMSProgType "0"
+      CopyLibPrefix "ARDT"
+      RecordPerformanceResults "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0"
+      OLEType "CContainerView"
+      Readonly "0"
+      Name "Job"
+      NextID "1"
+      IsTopLevel "0"
+      StageList "V0S0|V0S1|V0A5|V0S10"
+      StageXPos "480|264|90|120"
+      StageYPos "288|288|23|288"
+      StageTypes "CSeqFileStage|CTransformerStage|ID_PALETTEANNOTATION|CCustomStage.CC_GUI"
+      NextStageID "11"
+      SnapToGrid "1"
+      GridLines "0"
+      ZoomValue "100"
+      StageXSize "48|48|437|48"
+      StageYSize "48|48|206|48"
+      ContainerViewSizing "0010 0009 0640 0578 0000 0001 0000 0120"
+      StageNames "Dummy|Load_Task_Hist_Strt_Dt| |VPROCCTL"
+      StageTypeIDs "CSeqFileStage|CTransformerStage| |TeradataConnector"
+      LinkNames " |Dummy_Output| |Dummy_Data"
+      LinkHasMetaDatas " |True| |True"
+      LinkTypes " |1| |1"
+      LinkNamePositionXs " |317| |141"
+      LinkNamePositionYs " |312| |312"
+      TargetStageIDs " |V0S0| |V0S1"
+      SourceStageEffectiveExecutionModes " |0| |0"
+      SourceStageRuntimeExecutionModes " |0| |0"
+      TargetStageEffectiveExecutionModes " |0| |0"
+      TargetStageRuntimeExecutionModes " |0| |0"
+      LinkIsSingleOperatorLookup " |False| |False"
+      LinkIsSortSequential " |False| |False"
+      LinkSortMode " |0| |0"
+      LinkPartColMode " |0| |0"
+      LinkSourcePinIDs " |V0S1P1| |V0S10P1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0A5"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V0A5"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText =+=+=+=
+Job Name: TcktRes100AcutEdwVprctlXpt
+Project : EDW Ticker Integration ACUT-EDW
+Developer  : Satya - CGI IGDC
+Date :16-Dec-2015
+Description :  This job populates the ini Acut_Task_Hist_Strt_Dt for the current run from VPROCCTL.
+
+
+Before routine :None
+After Routine : None
+
+Restart Instructions: Re-Run Job.
+
+=+=+=+=
+      TextFont "MS Sans Serif\\12\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "0"
+      TextVerticalJustification "0"
+      TextColor "4194368"
+      BackgroundColor "14286847"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S0"
+      OLEType "CSeqFileStage"
+      Readonly "0"
+      Name "Dummy"
+      NextID "2"
+      InputPins "V0S0P1"
+      UnixFormat "1"
+      PipeStage "0"
+      UnicodeBOM "1"
+      UnicodeSwapped "1"
+      AllowColumnMapping "0"
+      WithFilter "0"
+      StageType "CSeqFileStage"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S0P1"
+      OLEType "CSeqInput"
+      Readonly "0"
+      Name "Dummy_Output"
+      Partner "V0S1|V0S1P1"
+      FileName "/dev/null"
+      Delimiter ","
+      QuoteChar "\""
+      ColHeaders "0"
+      OmitNewLine "0"
+      Append "0"
+      Backup "0"
+      FixedWidth "0"
+      ColSpace "0"
+      EnforceMetaData "0"
+      Writetime "0"
+      WaitforReader "0"
+      Flushrow "0"
+      PadChar "#"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S1"
+      OLEType "CTransformerStage"
+      Readonly "0"
+      Name "Load_Task_Hist_Strt_Dt"
+      NextID "3"
+      InputPins "V0S1P2"
+      OutputPins "V0S1P1"
+      ValidationStatus "0"
+      StageType "CTransformerStage"
+      BlockSize "0"
+      StageVars "CStageVar"
+      BEGIN DSSUBRECORD
+         Name "DSProjectName"
+         Expression "DSGetProjectInfo (DSJ.PROJECTNAME)"
+         InitialValue "\"\""
+         SqlType "3"
+         ParsedExpression "DSGetProjectInfo(DSJ.PROJECTNAME)"
+         Precision "18"
+         ColScale "4"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "NewStrtDt"
+         Expression "Left(Dummy_Data.PROCESSED_DT_TM,19) "
+         InitialValue "0"
+         SqlType "3"
+         ParsedExpression "Left(Dummy_Data.PROCESSED_DT_TM, 19)"
+         SourceColumn "Dummy_Data.PROCESSED_DT_TM"
+         Precision "18"
+         ColScale "4"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Temp"
+         Expression "fFile(\"register\", ConfigFilePath:\"/\":ConfigFileName, \"[\":DSProjectName:\"]Acut_Task_Hist_Strt_Dt=\":NewStrtDt)"
+         InitialValue "0"
+         SqlType "3"
+         ParsedExpression "fFile(\"register\", ConfigFilePath : \"/\" : ConfigFileName, \"[\" : DSProjectName : \"]Acut_Task_Hist_Strt_Dt=\" : NewStrtDt)"
+         StageVars "NewStrtDt"
+         Transform "fFile"
+         Precision "0"
+         ColScale "0"
+         ExtendedPrecision "0"
+      END DSSUBRECORD
+      StageVarsMinimised "0"
+      LoopVarsMaximised "0"
+      MaxLoopIterations "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S10"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "VPROCCTL"
+      NextID "2"
+      OutputPins "V0S10P1"
+      StageType "TeradataConnector"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "8.1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "cctera"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariants"
+         Value "8.1,12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsLibraries"
+         Value "cctera,cctera12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsVersions"
+         Value "1.0,1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLConnectorDescriptor"
+         Value =+=+=+=
+<?xml version="1.0"?><!--(c) Copyright 2005 Ascential Software Corporation. All Rights Reserved.
+This is proprietary source code of Ascential Software Corporation.
+The copyright notice above does not evidence any actual or intended
+publication of such source code.--><asc:Connector xmlns:asc="http://www.ascentialsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="1.0" version="1.0" xsi:schemaLocation="http://www.ascentialsoftware.com ../CC_Common/XML/CC_Connector.xsd"><MetaData><Id>TeradataConnector</Id><Type>database</Type><DisplayName>Teradata Connector</DisplayName><Description><ShortVersion>IBM InfoSphere Teradata Connector</ShortVersion><LongVersion>IBM InfoSphere Teradata Connector. This connector is used for accessing Teradata data sources.</LongVersion></Description><Author>IBM Corp.</Author><Vendor>IBM Corp.</Vendor><Copyright>Licensed Materials - Property of IBM (C) Copyright IBM Corp. 2005, 2006  All Rights Reserved.</Copyright><Icons><SmallVersion>[Path to small icon]</SmallVersion><LargeVersion>[Path to large icon]</LargeVersion></Icons><DependentLibraries/><ImportClasses/></MetaData><Variants><Variant><Name>8.1</Name><Library>cctera</Library><Version>1.0</Version></Variant><Variant><Name>12</Name><Library>cctera12</Library><Version>1.0</Version></Variant></Variants><Capabilities><SupportedEngines>ee se</SupportedEngines><SupportedPlatforms><Platform mode="32">windows</Platform></SupportedPlatforms><SupportedContexts>source target request</SupportedContexts><SupportedTransactionModels><Local/></SupportedTransactionModels><SupportsBrowsing>source target</SupportsBrowsing><SupportedSQLBuilderGrammars><Grammar id="DSPXTERADATABASEDML" label="Teradata V2R5.1 SQL syntax"/><Grammar id="DSPXTERADATAV2R6DML" label="Teradata V2R6 SQL syntax"/></SupportedSQLBuilderGrammars><Listener>none</Listener><ConnectionScope>thread</ConnectionScope><Reject><SupportedContexts>target request</SupportedContexts><RejectConditions><Error code="0">Success</Error><Error code="1">Row not found</Error><Error code="2">SQL error</Error><Error code="3">Duplicate key</Error></RejectConditions><DataElements><DataElement>ERRORCODE</DataElement><DataElement>ERRORTEXT</DataElement><DataElement>TERA.SQLCODE</DataElement><DataElement>TERA.ERRORFIELD</DataElement><DataElement>TERA.STMTNO</DataElement><DataElement>TERA.ACTIVITYTYPE</DataElement><DataElement>TERA.ACTIVITYCOUNT</DataElement></DataElements></Reject><SeCapabilities><RepositoryLocation>\\Stage Types\\Server\\Database</RepositoryLocation><StageType>passive</StageType><SupportsRef>true</SupportsRef><SuperIconName>Teradata</SuperIconName><SuperIconDefaultPriority>90</SuperIconDefaultPriority><HelpFileName>teraconn.chm</HelpFileName><InputLinks max="-1" min="0"/><OutputLinks max="-1" min="0"/><RejectLinks max="0" min="0"/></SeCapabilities><PxCapabilities><RepositoryLocation>\\Stage Types\\Parallel\\Database</RepositoryLocation><StageType>passive</StageType><SupportsRef>true</SupportsRef><SuperIconName>Teradata</SuperIconName><SuperIconDefaultPriority>90</SuperIconDefaultPriority><HelpFileName>teraconn.chm</HelpFileName><InputLinks max="-1" min="0"/><RejectLinks max="-1" min="0"/><SupportedLookupTypes/></PxCapabilities></Capabilities><MetaDataImport><Connection><Property callout="getList" calloutDescription="Default server name" calloutLabel="Server" calloutType="enumerator" description="Teradata Director Program ID" label="Server" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="Server" required="false" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">DefaultServer</CalloutArgument></Property><Property description="User ID on the Teradata server" label="User name" maxLength="256" maxOccurs="1" minLength="1" minOccurs="1" name="Username" required="true" type="string"/><Property description="User password on the Teradata server" label="Password" maxLength="256" maxOccurs="1" minLength="1" minOccurs="1" name="Password" required="true" type="protectedstring"/></Connection><SchemaClasses><Class description="Import the schema of a database object" label="Database object" name="DataCollection"><Connection/><Group description="Specify filter properties" label="Filter" name="Filter"><Property callout="getList" calloutDescription="A list of databases on the server" calloutLabel="Database" calloutType="enumerator" copyValueTo="/MetaDataImport/NonSchemaClasses/DataCollections/Filter/schema" description="Filter by database" label="Database" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="schema" required="false" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">DataSchemas</CalloutArgument></Property><Property copyValueTo="/MetaDataImport/NonSchemaClasses/DataCollections/Filter/includeViews" default="true" description="Include views in the list of database objects" label="Include views" maxOccurs="1" minOccurs="0" name="includeViews" required="false" type="bool"/><Property copyValueTo="/MetaDataImport/NonSchemaClasses/DataCollections/Filter/includeTables" default="true" description="Include tables in the list of database objects" label="Include tables" maxOccurs="1" minOccurs="0" name="includeTables" required="false" type="bool"/><Property copyValueTo="/MetaDataImport/NonSchemaClasses/DataCollections/Filter/includeMacros" default="false" description="Include macros in the list of database objects" label="Include macros" maxOccurs="1" minOccurs="0" name="includeMacros" required="false" type="bool"/><Property copyValueTo="/MetaDataImport/NonSchemaClasses/DataCollections/Filter/includeProcedures" default="false" description="Include stored procedures in the list of database objects" label="Include stored procedures" maxOccurs="1" minOccurs="0" name="includeProcedures" required="false" type="bool"/><Property copyValueTo="/MetaDataImport/NonSchemaClasses/DataCollections/Filter/includeFunctions" default="false" description="Include user-defined functions in the list of database objects" label="Include user-defined functions" maxOccurs="1" minOccurs="0" name="includeFunctions" required="false" type="bool"/><Property copyValueTo="/MetaDataImport/NonSchemaClasses/DataCollections/Filter/nameFilter" description="Filter by object name" label="Name contains" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="nameFilter" required="false" type="string"/></Group><Group description="Specify selection properties" label="Selection" name="Selection"><Property callout="query" calloutDescription="A list of database objects on the server" calloutLabel="Database object" calloutType="enumerator" description="Object name" label="Name" maxLength="256" maxOccurs="1" minLength="1" minOccurs="1" name="name" required="true" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">DataCollections</CalloutArgument></Property><Property hidden="true" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="schema" required="false" type="string"/><Property hidden="true" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="subType" required="false" type="string"/><Property default="false" description="Choose whether to include information about primary key columns" label="Include primary keys" maxOccurs="1" minOccurs="0" name="includePKs" required="false" type="bool"/><Property default="false" description="Choose whether to include information about foreign key columns" label="Include foreign keys" maxOccurs="1" minOccurs="0" name="includeFKs" required="false" type="bool"/><Property default="false" description="Choose whether to include information about indices" label="Include indices" maxOccurs="1" minOccurs="0" name="includeIndices" required="false" type="bool"/></Group></Class></SchemaClasses><NonSchemaClasses><Class description="Obtain the default server name" label="Server" name="DefaultServer"/><Class description="Obtain information about the server" label="Server" name="ServerInfo"><Connection/><Attributes><Attribute>release</Attribute><Attribute>version</Attribute></Attributes></Class><Class description="Obtain information about the server" label="Server" name="Database"><Connection/><Attributes><Attribute>vendor</Attribute><Attribute>version</Attribute><Attribute>DBMS</Attribute><Attribute>path</Attribute><Attribute>server</Attribute></Attributes></Class><Class description="Obtain a list of users on the server" label="Users" name="Users"><Connection/></Class><Class description="Obtain a list of accounts for the current user" label="Accounts" name="Accounts"><Connection/></Class><Class description="Obtain a list of databases on the server" label="Databases" name="DataSchemas"><Connection/><Attributes><Attribute>owner</Attribute><Attribute>isSystem</Attribute></Attributes></Class><Class description="Obtain a list of client character sets installed on the server" label="Client character sets" name="ClientCharacterSets"><Connection/></Class><Class description="Obtain the number of AMPs on the server" label="AMPs" name="AMPs"><Connection/></Class><Class description="Obtain the maximum request or response size supported by the server" label="Max buffer size" name="MaxBufferSize"><Connection/></Class><Class description="Obtain a list of tables on the server" label="Tables" name="Tables"><Connection/><Attributes><Attribute>database</Attribute></Attributes><Group description="Specify filter properties" label="Filter" name="Filter"><Property callout="getList" calloutDescription="A list of databases on the server" calloutLabel="Database" calloutType="enumerator" description="Filter by database" label="Database" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="Database" required="false" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">DataSchemas</CalloutArgument></Property><Property description="Filter by object name" label="Name contains" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="NameFilter" required="false" type="string"/></Group></Class><Class description="Obtain a list of database objects on the server" label="Database objects" name="DataCollections"><Connection/><Attributes><Attribute>schema</Attribute><Attribute>nameQualifier</Attribute><Attribute>subType</Attribute><Attribute>isView</Attribute><Attribute>viewExpression</Attribute><Attribute>nameQuotingChar</Attribute></Attributes><Group description="Specify filter properties" label="Filter" name="Filter"><Property callout="getList" calloutDescription="A list of databases on the server" calloutLabel="Database" calloutType="enumerator" description="Filter by database" label="Database" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="schema" required="false" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">DataSchemas</CalloutArgument></Property><Property default="true" description="Include views in the list of database objects" label="Include views" maxOccurs="1" minOccurs="0" name="includeViews" required="false" type="bool"/><Property default="true" description="Include tables in the list of database objects" label="Include tables" maxOccurs="1" minOccurs="0" name="includeTables" required="false" type="bool"/><Property default="false" description="Include macros in the list of database objects" label="Include macros" maxOccurs="1" minOccurs="0" name="includeMacros" required="false" type="bool"/><Property default="false" description="Include stored procedures in the list of database objects" label="Include stored procedures" maxOccurs="1" minOccurs="0" name="includeProcedures" required="false" type="bool"/><Property default="false" description="Include user-defined functions in the list of database objects" label="Include user-defined functions" maxOccurs="1" minOccurs="0" name="includeFunctions" required="false" type="bool"/><Property description="Filter by object name" label="Name contains" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="nameFilter" required="false" type="string"/></Group></Class><Class description="Obtain a list of related database objects on the server" label="Related database objects" name="RelatedDataCollections"><Connection/><Group description="Specify filter properties" label="Filter" name="Filter"><Property description="Object name" label="Name" maxLength="256" maxOccurs="1" minLength="1" minOccurs="1" name="name" required="true" type="string"/><Property description="Filter by database" label="Database" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="schema" required="false" type="string"/><Property default="true" description="Include tables whose primary keys are pointed to by foreign keys in this table" label="Include parents" maxOccurs="1" minOccurs="0" name="includeParents" required="false" type="bool"/><Property default="true" description="Include tables whose foreign keys point to this table's primary key" label="Include children" maxOccurs="1" minOccurs="0" name="includeChildren" required="false" type="bool"/></Group></Class></NonSchemaClasses></MetaDataImport><Properties><Connection><Property callout="getList" calloutDescription="Information about the server" calloutLabel="Server" calloutType="enumerator" description="Teradata Director Program ID" label="Server" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="Server" required="false" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">ServerInfo</CalloutArgument></Property><Property callout="getList" calloutDescription="A list of users that can be used to connect to the server" calloutLabel="User" calloutType="enumerator" description="User ID on the Teradata server" label="User name" maxLength="256" maxOccurs="1" minLength="1" minOccurs="1" name="Username" required="true" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">Users</CalloutArgument></Property><Property description="User password on the Teradata server" label="Password" maxLength="256" maxOccurs="1" minLength="1" minOccurs="1" name="Password" required="true" type="protectedstring"/><Property callout="getList" calloutDescription="A list of accounts for the current user" calloutLabel="Account" calloutType="enumerator" description="User account ID for resource accounting" label="Account" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="Account" required="false" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">Accounts</CalloutArgument></Property><Property callout="getList" calloutDescription="A list of databases on the server" calloutLabel="Database" calloutType="enumerator" description="Default database" label="Database" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="Database" required="false" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">DataSchemas</CalloutArgument></Property><Property default="1" description="Semantics for SQL transactions" label="Transaction mode" maxOccurs="1" minOccurs="0" name="TransactionMode" required="false" type="int"><Value code="1">ANSI</Value><Value code="2">Teradata</Value></Property><Property callout="getList" calloutDescription="A list of client character sets installed on the server" calloutLabel="Client character set" calloutType="enumerator" default="UTF8" description="Teradata client character set" label="Client character set" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="ClientCharacterSet" required="false" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">ClientCharacterSets</CalloutArgument></Property><Property contexts="all" default="true" description="Default is Yes. User can set it to No and specify the required ICU charset encoding" label="Automap characterset encoding" maxOccurs="1" minOccurs="0" name="AutoMapCharsetEncoding" required="false" type="bool"/><Property description="Specify the ICU charset encoding name, to be used" label="NLS map name" maxOccurs="1" minOccurs="0" name="NLSMapName" required="true" type="string"><Filter><FilterProperty property="/Connection/AutoMapCharsetEncoding">false</FilterProperty></Filter></Property><Property description="Maximum bytes per character" label="Maximum bytes per character" maxOccurs="1" minOccurs="0" minValue="1" name="MaxBytesPerCharacter" required="true" type="int"><Filter><FilterProperty property="/Connection/AutoMapCharsetEncoding">false</FilterProperty></Filter></Property><Property description="Queryband expression to be used for the session" label="Queryband Expression" maxLength="2048" maxOccurs="1" minLength="1" minOccurs="0" name="Queryband" required="false" type="string"/></Connection><Usage><Property contexts="target" default="0" description="The mode to be used when writing to a database table" label="Write mode" maxOccurs="1" minOccurs="1" name="WriteMode" required="true" type="int"><Value code="0">Insert</Value><Value code="1">Update</Value><Value code="2">Delete</Value><Value code="3">Insert then update</Value><Value code="4">Update then insert</Value><Value code="5">Delete then insert</Value><Value code="7">User-defined SQL</Value></Property><Property contexts="all" default="false" description="Specifies whether to generate SQL statement(s) at runtime" filterContexts="target" filterProperty="/Usage/WriteMode" filterValue="0 1 2 3 4 5" label="Generate SQL" maxOccurs="1" minOccurs="0" name="GenerateSQL" required="false" type="bool"/><Property contexts="all" description="The table name to be used in generated SQL" label="Table name" maxOccurs="1" minOccurs="1" name="TableName" required="true" type="string"><Filter logic="or"><FilterProperty logic="or" property="/Usage/TableAction">1 2 3</FilterProperty><FilterProperty logic="or" property="/Usage/GenerateSQL">true</FilterProperty><Filter logic="and"><FilterProperty logic="or" property="/Usage/WriteMode">7</FilterProperty><FilterProperty logic="or" property="/Usage/AccessMethod">2</FilterProperty></Filter></Filter></Property><Property contexts="all" default="false" description="Specifies whether or not to enclose database object names in quotes when generating DDL and DML" label="Enable quoted identifiers" maxOccurs="1" minOccurs="1" name="EnableQuotedIDs" required="false" type="bool"/><Property contexts="target" default="0" deprecated="false" description="Determines how records should be ordered across multiple links." engines="ee" filterContexts="all" filterEngines="all" hidden="false" inputLinkCountConstraint="multiple" label="Record ordering" maxOccurs="1" minOccurs="1" multiline="false" name="RecordOrdering" required="false" scope="stage" transactionModels="local" type="int"><Value code="0">All records</Value><Value code="1">First record</Value><Value code="2">Ordered</Value><Property default="false" description="A column to be used for sorting." filterContexts="all" filterEngines="all" filterProperty="/Usage/RecordOrdering" filterValue="2" hidden="false" label="Key column" maxOccurs="unbounded" minOccurs="1" multiline="false" name="KeyColumn" required="false" scope="stage" transactionModels="local" type="category"><Property callout="columns" calloutDescription="Choose columns to define cross-link ordering" calloutLabel="Available columns" calloutType="builder" description="The name of a column to be used for sorting." filterContexts="all" filterEngines="all" hidden="false" label="Column name" maxOccurs="1" minOccurs="1" multiline="false" name="ColumnName" required="true" scope="stage" transactionModels="local" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="columnSelection">commonInput</CalloutArgument></Property><Property default="0" description="Specifies whether sorting should be in ascending or descending order." filterContexts="all" filterEngines="all" hidden="false" label="Sort order" maxOccurs="1" minOccurs="1" multiline="false" name="SortOrder" required="false" scope="stage" transactionModels="local" type="int"><Value code="0">Ascending</Value><Value code="1">Descending</Value></Property><Property default="0" description="Specifies whether null values should appear before or after non-null values." filterContexts="all" filterEngines="all" hidden="false" label="Null order" maxOccurs="1" minOccurs="1" multiline="false" name="NullOrder" required="false" scope="stage" transactionModels="local" type="int"><Value code="0">Before</Value><Value code="1">After</Value></Property><Property default="false" description="Specifies whether strings should be compared using a case sensitive or insensitive comparison." filterContexts="all" filterEngines="all" hidden="false" label="Case sensitive" maxOccurs="1" minOccurs="1" multiline="false" name="CaseSensitive" required="false" scope="stage" transactionModels="local" type="bool"/></Property></Property><Property contexts="source request" default="false" description="Default is False. Setting this to True, describes char-data as string instead of ustring" label="Describe Strings In Bytes" maxOccurs="1" minOccurs="0" name="DescribeStringsInBytes" required="false" type="bool"/><Property contexts="source target" default="1" description="Specify whether to use immediate or bulk access" inputLinkCountConstraint="single" label="Access method" maxOccurs="1" minOccurs="0" name="AccessMethod" required="false" scope="stage" transactionModels="local" type="int"><Value code="1">Immediate</Value><Value code="2">Bulk</Value></Property><Property description="SQL statement properties" label="SQL" maxOccurs="1" minOccurs="0" name="SQL" required="false" type="category"><Property contexts="source request" description="Statement to be executed when reading rows from the database" label="Select statement" maxOccurs="1" minOccurs="1" multiline="true" name="SelectStatement" required="true" sqlBuilderDescription="Invoke SQL builder to build the select statement" sqlBuilderLabel="Build" statementType="SELECT" type="string" xsi:type="asc:SQLBuilderProperty"><Filter logic="and"><FilterProperty logic="or" property="/Usage/GenerateSQL">false</FilterProperty></Filter><Property description="List of tables used in the statement" hidden="true" label="Table list" maxOccurs="1" minOccurs="0" name="Tables" required="false" type="category"><Property description="Name of a table used in the statement" label="Table name" maxOccurs="unbounded" minOccurs="0" name="Table" required="false" type="string"/></Property><Property description="List of statement parameters" hidden="true" label="Parameter list" maxOccurs="1" minOccurs="0" name="Parameters" required="false" type="category"><Property description="Statement parameter represented as a comma delimited triplet containing ORCHESTRATE variable name, corresponding field name, and table name" label="Parameter" maxOccurs="unbounded" minOccurs="0" name="Parameter" required="false" type="string"/></Property><Property description="Select statement columns" hidden="true" label="Select statement columns" maxOccurs="1" minOccurs="0" name="Columns" required="false" type="category"><Property description="Select statement column" label="Select statement column" maxOccurs="unbounded" minOccurs="0" name="Column" required="false" type="string"/></Property><Property description="The where clause predicate of the SQL statement" hidden="true" label="Where clause" maxOccurs="1" minOccurs="0" name="WhereClause" required="false" type="string"/><Property description="The other clause predicate of the SQL statement" hidden="true" label="Other clause" maxOccurs="1" minOccurs="0" name="OtherClause" required="false" type="string"/></Property><Property contexts="target" description="Statement to be executed when inserting rows into the database" label="Insert statement" maxOccurs="1" minOccurs="1" multiline="true" name="InsertStatement" required="true" sqlBuilderDescription="Invoke SQL builder to build the insert statement" sqlBuilderLabel="Build" statementType="INSERT" type="string" xsi:type="asc:SQLBuilderProperty"><Filter logic="and"><FilterProperty logic="or" property="/Usage/GenerateSQL">false</FilterProperty><FilterProperty logic="or" property="/Usage/WriteMode">0 3 4 5</FilterProperty></Filter><Property description="Statement to be executed when inserting rows into the database" hidden="true" label="Insert statement" maxOccurs="1" minOccurs="0" name="Tables" required="false" type="category"><Property description="Statement to be executed when inserting rows into the database" label="Insert statement" maxOccurs="unbounded" minOccurs="0" name="Table" required="false" type="string"/></Property><Property description="List of statement parameters" hidden="true" label="Parameter list" maxOccurs="1" minOccurs="0" name="Parameters" required="false" type="category"><Property description="Statement parameter represented as a comma delimited triplet containing ORCHESTRATE variable name, corresponding field name, and table name" label="Parameter" maxOccurs="unbounded" minOccurs="0" name="Parameter" required="false" type="string"/></Property><Property description="Statement to be executed when inserting rows into the database" hidden="true" label="Insert statement" maxOccurs="1" minOccurs="0" name="WhereClause" required="false" type="string"/></Property><Property contexts="target" description="Statement to be executed when updating rows in the database" label="Update statement" maxOccurs="1" minOccurs="1" multiline="true" name="UpdateStatement" required="true" sqlBuilderDescription="Invoke SQL builder to build the update statement" sqlBuilderLabel="Build" statementType="UPDATE" type="string" xsi:type="asc:SQLBuilderProperty"><Filter logic="and"><FilterProperty logic="or" property="/Usage/GenerateSQL">false</FilterProperty><FilterProperty logic="or" property="/Usage/WriteMode">1 3 4</FilterProperty></Filter><Property description="Statement to be executed when updating rows in the database" hidden="true" label="Update statement" maxOccurs="1" minOccurs="0" name="Tables" required="false" type="category"><Property description="Statement to be executed when updating rows in the database" label="Update statement" maxOccurs="unbounded" minOccurs="0" name="Table" required="false" type="string"/></Property><Property description="List of statement parameters" hidden="true" label="Parameter list" maxOccurs="1" minOccurs="0" name="Parameters" required="false" type="category"><Property description="Statement parameter represented as a comma delimited triplet containing ORCHESTRATE variable name, corresponding field name, and table name" label="Parameter" maxOccurs="unbounded" minOccurs="0" name="Parameter" required="false" type="string"/></Property><Property description="Statement to be executed when updating rows in the database" hidden="true" label="Update statement" maxOccurs="1" minOccurs="0" name="WhereClause" required="false" type="string"/></Property><Property contexts="target" description="Statement to be executed when deleting rows from the database" label="Delete statement" maxOccurs="1" minOccurs="1" multiline="true" name="DeleteStatement" required="true" sqlBuilderDescription="Invoke SQL builder to build the delete statement" sqlBuilderLabel="Build" statementType="DELETE" type="string" xsi:type="asc:SQLBuilderProperty"><Filter logic="and"><FilterProperty logic="or" property="/Usage/GenerateSQL">false</FilterProperty><FilterProperty logic="or" property="/Usage/WriteMode">2 5</FilterProperty></Filter><Property description="Statement to be executed when deleting rows from the database" hidden="true" label="Delete statement" maxOccurs="1" minOccurs="0" name="Tables" required="false" type="category"><Property description="Statement to be executed when deleting rows from the database" label="Delete statement" maxOccurs="unbounded" minOccurs="0" name="Table" required="false" type="string"/></Property><Property description="List of statement parameters" hidden="true" label="Parameter list" maxOccurs="1" minOccurs="0" name="Parameters" required="false" type="category"><Property description="Statement parameter represented as a comma delimited triplet containing ORCHESTRATE variable name, corresponding field name, and table name" label="Parameter" maxOccurs="unbounded" minOccurs="0" name="Parameter" required="false" type="string"/></Property><Property description="Statement to be executed when deleting rows from the database" hidden="true" label="Delete statement" maxOccurs="1" minOccurs="0" name="WhereClause" required="false" type="string"/></Property><Property contexts="target" default="1" description="Source of the user-defined SQL statements" filterProperty="/Usage/WriteMode" filterValue="7" label="User-defined SQL" maxOccurs="1" minOccurs="1" name="UserDefined" required="true" type="int"><Value code="1">Statements</Value><Value code="2">File</Value><Property description="SQL statements to be executed for each input row" filterProperty="/Usage/SQL/UserDefined" filterValue="1" label="Statements" maxOccurs="1" minOccurs="1" multiline="true" name="Statements" required="true" type="string"/><Property description="File on the conductor node that contains SQL statements to be executed for each input row" filterProperty="/Usage/SQL/UserDefined" filterValue="2" label="File" maxLength="256" maxOccurs="1" minLength="1" minOccurs="1" name="File" required="true" type="string"><Property description="IANA character set name" label="Character set" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="CharacterSet" required="false" type="string"/></Property><Property default="1" description="Specify whether to separate the statements into individual requests or use a multi-statement request" filterProperty="/Usage/AccessMethod" filterValue="1" label="Request type" maxOccurs="1" minOccurs="0" name="RequestType" required="false" type="int"><Value code="1">Individual</Value><Value code="2">Multi-statement</Value><Property default="true" description="Abort the statement sequence if a statement fails" filterProperty="/Usage/SQL/UserDefined/RequestType" filterValue="1" label="Fail on error" maxOccurs="1" minOccurs="0" name="FailOnError" required="false" type="bool"/></Property></Property></Property><Property contexts="target" default="0" description="Select the action to perform on the database table" filterProperty="/Usage/WriteMode" filterValue="0 7" label="Table action" maxOccurs="1" minOccurs="1" name="TableAction" required="true" type="int"><Value code="0">Append</Value><Value code="1">Create</Value><Value code="2">Replace</Value><Value code="3">Truncate</Value><Property contexts="target" default="true" description="Specifies whether to generate a create statement at runtime" filterProperty="/Usage/TableAction" filterValue="1 2" label="Generate create statement at runtime" maxOccurs="1" minOccurs="0" name="GenerateCreateStatement" required="false" type="bool"><Property default="true" description="Abort the job if there is an error executing a command" label="Fail on error" maxOccurs="1" minOccurs="0" name="FailOnError" required="false" type="bool"/><Property callout="createTable" calloutDescription="Generate a create table statement" calloutLabel="Generate" calloutType="builder" contexts="target" default="" description="A statement to be executed when creating the target database table" filterProperty="/Usage/TableAction/GenerateCreateStatement" filterValue="false" label="Create statement" maxOccurs="1" minOccurs="0" multiline="true" name="CreateStatement" required="true" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument copyValueFrom="/Usage/TableName" name="table"/><CalloutArgument copyValueFrom="/Usage/EnableQuotedIDs" name="case"/></Property><Property contexts="target" description="Table creation properties" filterProperty="/Usage/TableAction/GenerateCreateStatement" filterValue="true" label="Create table options" maxOccurs="1" minOccurs="0" name="CreateTableOptions" required="false" type="category"><Property default="1" description="Controls whether to specify a SET or MULTISET qualifier" label="Allow duplicate rows" maxOccurs="1" minOccurs="0" name="AllowDuplicateRows" required="false" type="int"><Value code="1">Default</Value><Value code="2">Yes</Value><Value code="3">No</Value></Property><Property default="1" description="Controls whether to specify a FALLBACK clause" label="Make duplicate copies" maxOccurs="1" minOccurs="0" name="MakeDuplicateCopies" required="false" type="int"><Value code="1">Default</Value><Value code="2">Yes</Value><Value code="3">No</Value></Property><Property default="1" description="Controls whether to specify a FREESPACE clause" filterChildPropertiesOnValue="2" label="Table free space" maxOccurs="1" minOccurs="0" name="TableFreeSpace" required="false" type="int"><Value code="1">Default</Value><Value code="2">Yes</Value><Property default="0" description="Percent of free space to remain during loading operations" label="Free space percent" maxOccurs="1" maxValue="75" minOccurs="0" minValue="0" name="FreeSpacePercent" required="false" type="int"/></Property><Property default="0" description="Controls whether to specify a DATABLOCKSIZE clause" label="Data block size" maxOccurs="1" minOccurs="0" minValue="0" name="DataBlockSize" required="false" type="int"/><Property description="Server character set for Char and VarChar columns" label="Server character set" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="ServerCharacterSet" required="false" type="string"/><Property default="1" description="Primary index type for key columns" label="Primary index type" maxOccurs="1" minOccurs="0" name="PrimaryIndexType" required="false" type="int"><Value code="1">Non-unique</Value><Value code="2">Unique</Value><Value code="3">noPI</Value></Property></Property></Property><Property contexts="target" default="true" description="Specifies whether to generate a drop table statement at runtime" filterProperty="/Usage/TableAction" filterValue="2" label="Generate drop statement at runtime" maxOccurs="1" minOccurs="0" name="GenerateDropStatement" required="false" type="bool"><Property default="false" description="Abort the job if there is an error executing a command" label="Fail on error" maxOccurs="1" minOccurs="0" name="FailOnError" required="false" type="bool"/><Property callout="dropTable" calloutDescription="Generate a drop table statement" calloutLabel="Generate" calloutType="builder" contexts="target" default="" description="A statement to be executed when dropping the target database table" filterProperty="/Usage/TableAction/GenerateDropStatement" filterValue="false" label="Drop statement" maxOccurs="1" minOccurs="0" multiline="true" name="DropStatement" required="true" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument copyValueFrom="/Usage/TableName" name="table"/><CalloutArgument copyValueFrom="/Usage/EnableQuotedIDs" name="case"/></Property></Property><Property contexts="target" default="true" description="Specifies whether to generate a truncate table statement at runtime" filterProperty="/Usage/TableAction" filterValue="3" label="Generate truncate statement at runtime" maxOccurs="1" name="GenerateTruncateStatement" required="false" type="bool"><Property default="true" description="Abort the job if there is an error executing a command" label="Fail on error" maxOccurs="1" minOccurs="0" name="FailOnError" required="false" type="bool"/><Property callout="truncateTable" calloutDescription="Generate a truncate table statement" calloutLabel="Generate" calloutType="builder" contexts="target" default="" description="A statement to be executed when truncating the database table" filterProperty="/Usage/TableAction/GenerateTruncateStatement" filterValue="false" label="Truncate statement" maxOccurs="1" minOccurs="0" multiline="true" name="TruncateStatement" required="true" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument copyValueFrom="/Usage/TableName" name="table"/><CalloutArgument copyValueFrom="/Usage/EnableQuotedIDs" name="case"/></Property></Property></Property><Property description="Transaction properties" inputLinkCountConstraint="single" label="Transaction" name="Transaction" transactionModels="local" type="category"><Property default="2000" description="Number of records per transaction. The value 0 means all available records" inputLinkCountConstraint="single" label="Record count" maxValue="999999999" minValue="0" name="RecordCount" required="false" transactionModels="local" type="int"/><Property contexts="source request" default="0" description="Specify settings for the end of wave handling. None means EOW markers are never inserted, Before means EOW markers are inserted before committing the transaction, After means EOW markers are inserted after committing the transaction" engines="ee" filterChildPropertiesOnValue="1 2" label="End of wave" name="EndOfWave" required="false" type="int"><Value code="0">None</Value><Value code="1">Before</Value><Value code="2">After</Value><Property default="false" description="Specifies whether to insert an EOW marker for the last set of records when the number is less than the specified transaction record count value" label="End of data" name="EndOfData" required="false" type="bool"/></Property></Property><Property default="false" description="Transaction grouping allows operations on multiple links to be executed within a single transaction." engines="se" inputLinkCountConstraint="multiple" label="Enable transaction grouping" maxOccurs="1" minOccurs="0" name="EnableTransactionGrouping" required="false" scope="stage" specialFilter="1" type="bool"/><Property contexts="target" description="Transaction grouping settings" engines="se" inputLinkCountConstraint="multiple" label="Transaction grouping" maxOccurs="1" minOccurs="0" name="TransactionGrouping" required="false" scope="link" specialFilter="1" type="category"><Property default="0" description="The action to be taken when a link is skipped" label="Action on skip" maxOccurs="1" minOccurs="0" name="ActionOnSkip" required="false" type="int"><Value code="0">Continue</Value><Value code="1">Rollback</Value></Property><Property default="1" description="The action to be taken when a failure occurs on a link" label="Action on failure" maxOccurs="1" minOccurs="0" name="ActionOnFailure" required="false" type="int"><Value code="0">Continue</Value><Value code="1">Rollback</Value></Property></Property><Property description="Session properties" label="Session" maxOccurs="1" minOccurs="0" name="Session" required="false" type="category"><Property contexts="source request" default="1" description="Degree of isolation of an application process from concurrent application processes" filterContexts="source" label="Isolation level" maxOccurs="1" minOccurs="0" name="IsolationLevel" required="false" type="int"><Value code="1">Default</Value><Value code="2">Read uncommitted</Value><Value code="3">Read committed</Value><Value code="4">Repeatable read</Value><Value code="5">Serializable</Value></Property><Property default="2000" description="The array size to be used for all read and write database operations" label="Array size" maxOccurs="1" minOccurs="0" minValue="1" name="ArraySize" required="false" type="int"/><Property description="Properties that affect schema reconciliation" label="Schema Reconciliation" maxOccurs="1" minOccurs="0" name="SchemaReconciliation" required="false" type="category"><Property contexts="target request" default="1" description="Specify whether to drop unused fields or abort the job" label="Unused field action" maxOccurs="1" minOccurs="0" name="UnusedFieldAction" required="false" type="int"><Value code="1">Abort</Value><Value code="2">Warn</Value><Value code="3">Drop</Value><Value code="4">Keep</Value></Property><Property contexts="source request" default="true" description="Fail if sizes of numeric and string fields do not match when validating the design schema against the database" label="Fail on size mismatch" maxOccurs="1" minOccurs="0" name="FailOnSizeMismatch" required="false" type="bool"/><Property contexts="source request" default="true" description="Fail if types of fields do not match when validating the design schema against the database" label="Fail on type mismatch" maxOccurs="1" minOccurs="0" name="FailOnTypeMismatch" required="false" type="bool"/></Property><Property default="false" description="Enables/disables the ability to specify LOB columns to be passed using locator (reference) information. LOB columns not specified will be passed inline" filterChildPropertiesOnValue="true" label="Enable LOB references" name="PassLobLocator" required="false" type="bool"><Property callout="lobCandidateColumns" calloutDescription="Choose columns containing LOBs to be passed by reference (locator). Columns that are not selected will be passed inline" calloutLabel="Available columns" calloutType="builder" default="" description="Use to choose columns containing LOBs to be passed by locator (reference)" label="Columns" maxOccurs="unbounded" minOccurs="0" name="Column" required="true" type="string" xsi:type="asc:CalloutProperty"/></Property></Property><Property default="false" description="Before/After SQL properties" filterChildPropertiesOnValue="true" label="Before/After SQL" maxOccurs="1" minOccurs="0" name="BeforeAfter" required="false" type="bool"><Property default="" description="Enter a SQL statement to be executed once before any data is processed" label="Before SQL" maxOccurs="1" minOccurs="0" multiline="true" name="before" required="false" type="string"><Property default="true" description="Abort the job if there is an error executing a command" label="Fail on error" maxOccurs="1" minOccurs="0" name="FailOnError" required="false" type="bool"/></Property><Property default="" description="Enter a SQL statement to be executed once after all data is processed" label="After SQL" maxOccurs="1" minOccurs="0" multiline="true" name="after" required="false" type="string"><Property default="true" description="Abort the job if there is an error executing a command" label="Fail on error" maxOccurs="1" minOccurs="0" name="FailOnError" required="false" type="bool"/></Property><Property default="" description="Enter a SQL statement to be executed once on each node before any data is processed" engines="ee" label="Before SQL (node)" maxOccurs="1" minOccurs="0" multiline="true" name="beforeNode" required="false" type="string"><Property default="true" description="Abort the job if there is an error executing a command" label="Fail on error" maxOccurs="1" minOccurs="0" name="FailOnError" required="false" type="bool"/></Property><Property default="" description="Enter a SQL statement to be executed once on each node after all data is processed" engines="ee" label="After SQL (node)" maxOccurs="1" minOccurs="0" multiline="true" name="afterNode" required="false" type="string"><Property default="true" description="Abort the job if there is an error executing a command" label="Fail on error" maxOccurs="1" minOccurs="0" name="FailOnError" required="false" type="bool"/></Property><Property description="File on the conductor node that contains Before SQL statements" label="Before SQL file" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="BeforeSQLFile" required="false" type="string"><Property default="true" description="Abort the job if there is an error executing a command" label="Fail on error" maxOccurs="1" minOccurs="0" name="FailOnError" required="false" type="bool"/><Property description="IANA character set name" label="Character set" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="CharacterSet" required="false" type="string"/></Property><Property description="File on the conductor node that contains After SQL statements" label="After SQL file" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="AfterSQLFile" required="false" type="string"><Property default="true" description="Abort the job if there is an error executing a command" label="Fail on error" maxOccurs="1" minOccurs="0" name="FailOnError" required="false" type="bool"/><Property description="IANA character set name" label="Character set" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="CharacterSet" required="false" type="string"/></Property></Property><Property contexts="target" description="Immediate access properties" filterProperty="/Usage/AccessMethod" filterValue="1" label="Immediate access" maxOccurs="1" minOccurs="0" name="ImmediateAccess" required="false" type="category"><Property default="1" description="Specify whether requests should share the same buffer or use separate buffers" filterProperty="/Usage/WriteMode" filterValue="3 4 5 7" label="Buffer usage" maxOccurs="1" minOccurs="0" name="BufferUsage" required="false" type="int"><Filter logic="or"><FilterProperty logic="or" property="/Usage/WriteMode">3 4 5</FilterProperty><Filter logic="and"><FilterProperty logic="or" property="/Usage/WriteMode">7</FilterProperty><FilterProperty logic="or" property="/Usage/SQL/UserDefined/RequestType">1</FilterProperty></Filter></Filter><Value code="1">Share</Value><Value code="2">Separate</Value></Property></Property><Property contexts="source target" description="Bulk access properties" filterProperty="/Usage/AccessMethod" filterValue="2" inputLinkCountConstraint="single" label="Bulk access" maxOccurs="1" minOccurs="0" name="BulkAccess" required="false" transactionModels="local" type="category"><Property contexts="target" default="1" description="Type of bulk load" label="Load type" maxOccurs="1" minOccurs="0" name="LoadType" required="false" type="int"><Value code="1">Load</Value><Value code="2">Update</Value><Value code="3">Stream</Value></Property><Property contexts="target" description="Table of rows rejected for SQL errors" label="Error table 1" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="ErrorTable1" required="false" type="string"/><Property contexts="target" description="Table of rows rejected for uniqueness violations" filterProperty="/Usage/BulkAccess/LoadType" filterValue="1 2" label="Error table 2" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="ErrorTable2" required="false" type="string"/><Property contexts="target" description="Restart log table" label="Log table" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="LogTable" required="false" type="string"/><Property contexts="target" description="Work table" filterProperty="/Usage/BulkAccess/LoadType" filterValue="1 2" label="Work table" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="WorkTable" required="false" type="string"/><Property contexts="target" default="1" description="Specify whether to drop error tables before loading begins or restart an aborted load" label="Start mode" maxOccurs="1" minOccurs="0" name="StartMode" required="false" type="int"><Value code="1">Clean</Value><Value code="2">Restart</Value></Property><Property contexts="target" default="1" description="Specify whether to drop error tables and the work table if loading ends with an error that cannot be restarted" label="Cleanup mode" maxOccurs="1" minOccurs="0" name="CleanupMode" required="false" type="int"><Value code="1">Drop</Value><Value code="2">Keep</Value></Property><Property default="0" description="Number of minutes between logon retries" label="Sleep" maxOccurs="1" minOccurs="0" minValue="0" name="Sleep" required="false" type="int"/><Property default="0" description="Maximum number of hours to retry the logon operation" label="Tenacity" maxOccurs="1" minOccurs="0" minValue="0" name="Tenacity" required="false" type="int"/><Property contexts="target" default="0" description="Maximum number of rows rejected to error table 1" label="Error limit" maxOccurs="1" minOccurs="0" minValue="0" name="ErrorLimit" required="false" type="int"/><Property contexts="target" description="Error control options" filterProperty="/Usage/BulkAccess/LoadType" filterValue="2 3" label="Error control" maxOccurs="1" minOccurs="0" name="ErrorControl" required="false" type="category"><Property default="1" description="Specify whether to reject or ignore duplicate rows in insert operations" filterProperty="/Usage/WriteMode" filterValue="0 3 4 5 7" label="Duplicate insert rows" maxOccurs="1" minOccurs="0" name="DuplicateInsertRows" required="false" type="int"><Value code="1">Default</Value><Value code="2">Reject</Value><Value code="3">Ignore</Value></Property><Property default="1" description="Specify whether to reject or ignore duplicate rows in update operations" filterProperty="/Usage/WriteMode" filterValue="1 3 4 7" label="Duplicate update rows" maxOccurs="1" minOccurs="0" name="DuplicateUpdateRows" required="false" type="int"><Value code="1">Default</Value><Value code="2">Reject</Value><Value code="3">Ignore</Value></Property><Property default="1" description="Specify whether to reject or ignore missing rows in update operations" filterProperty="/Usage/WriteMode" filterValue="1 3 4 7" label="Missing update rows" maxOccurs="1" minOccurs="0" name="MissingUpdateRows" required="false" type="int"><Value code="1">Default</Value><Value code="2">Reject</Value><Value code="3">Ignore</Value></Property><Property default="1" description="Specify whether to reject or ignore missing rows in delete operations" filterProperty="/Usage/WriteMode" filterValue="2 5 7" label="Missing delete rows" maxOccurs="1" minOccurs="0" name="MissingDeleteRows" required="false" type="int"><Value code="1">Default</Value><Value code="2">Reject</Value><Value code="3">Ignore</Value></Property></Property><Property contexts="target" description="Update load properties" filterProperty="/Usage/BulkAccess/LoadType" filterValue="2" label="Update load" maxOccurs="1" minOccurs="0" name="UpdateLoad" required="false" type="category"><Property default="false" description="Controls whether to use a delete task to delete multiple rows from a table" filterProperty="/Usage/WriteMode" filterValue="2" label="Delete multiple rows" maxOccurs="1" minOccurs="0" name="DeleteMultipleRows" required="false" type="bool"/></Property><Property contexts="target" description="Stream load properties" filterProperty="/Usage/BulkAccess/LoadType" filterValue="3" label="Stream load" maxOccurs="1" minOccurs="0" name="StreamLoad" required="false" type="category"><Property default="1" description="Serialize multiple statements" label="Serialize" maxOccurs="1" minOccurs="0" name="Serialize" required="false" type="int"><Value code="1">Yes</Value><Value code="2">No</Value></Property><Property default="1" description="Robust restart logic" label="Robust" maxOccurs="1" minOccurs="0" name="Robust" required="false" type="int"><Value code="1">Yes</Value><Value code="2">No</Value></Property><Property default="0" description="Number of statements per request" label="Pack size" maxOccurs="1" minOccurs="0" minValue="0" name="PackSize" required="false" type="int"/><Property callout="getList" calloutDescription="A list of databases on the server" calloutLabel="Database" calloutType="enumerator" description="Database that contains macros used by the Stream load" label="Macro database" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="MacroDatabase" required="false" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">DataSchemas</CalloutArgument></Property></Property></Property><Property description="Limit setting properties" label="Limit settings" maxOccurs="1" minOccurs="0" name="LimitSettings" required="false" type="category"><Property callout="getList" calloutDescription="The number of AMPs on the server" calloutLabel="AMPs" calloutType="enumerator" default="0" description="Maximum number of connection sessions" filterProperty="/Usage/AccessMethod" filterValue="2" inputLinkCountConstraint="single" label="Max sessions" maxOccurs="1" minOccurs="0" minValue="0" name="MaxSessions" required="false" scope="stage" type="int" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">AMPs</CalloutArgument></Property><Property callout="getList" calloutDescription="The number of AMPs on the server" calloutLabel="AMPs" calloutType="enumerator" default="0" description="Maximum number of connection sessions per partition" filterProperty="/Usage/AccessMethod" filterValue="2" inputLinkCountConstraint="single" label="Max partition sessions" maxOccurs="1" minOccurs="0" minValue="0" name="MaxPartitionSessions" required="false" scope="stage" type="int" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">AMPs</CalloutArgument></Property><Property callout="getList" calloutDescription="The number of AMPs on the server" calloutLabel="AMPs" calloutType="enumerator" default="0" description="Minimum number of connection sessions" filterProperty="/Usage/AccessMethod" filterValue="2" inputLinkCountConstraint="single" label="Min sessions" maxOccurs="1" minOccurs="0" minValue="0" name="MinSessions" required="false" scope="stage" type="int" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">AMPs</CalloutArgument></Property><Property callout="getList" calloutDescription="The maximum request or response size supported by the server" calloutLabel="Max buffer size" calloutType="enumerator" default="0" description="Maximum request or response buffer size" label="Max buffer size" maxOccurs="1" minOccurs="0" minValue="0" name="MaxBufferSize" required="false" scope="stage" type="int" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">MaxBufferSize</CalloutArgument></Property><Property contexts="target" default="0" description="Row number to start loading" inputLinkCountConstraint="single" label="Start row" maxOccurs="1" minOccurs="0" minValue="0" name="StartRow" required="false" type="int"/><Property contexts="target" default="0" description="Row number to end loading" inputLinkCountConstraint="single" label="End row" maxOccurs="1" minOccurs="0" minValue="0" name="EndRow" required="false" type="int"/><Property default="100000" description="Number of rows per partition before a progress message is displayed, or 0 for no messages" label="Progress interval" maxOccurs="1" minOccurs="0" minValue="0" name="ProgressInterval" required="false" type="int"/></Property><Property default="false" description="Parallel synchronization properties" engines="ee" filterChildPropertiesOnValue="true" inputLinkCountConstraint="single" label="Parallel synchronization" maxOccurs="1" minOccurs="0" name="ParallelSynchronization" required="false" type="bool"><Property callout="getList" calloutDescription="A list of tables on the server" calloutLabel="Table" calloutType="enumerator" description="Sync table name" label="Sync table" maxLength="256" maxOccurs="1" minLength="1" minOccurs="1" name="SyncTable" required="true" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">Tables</CalloutArgument></Property><Property callout="getList" calloutDescription="Information about the server" calloutLabel="Server" calloutType="enumerator" description="Sync table server name" label="Sync server" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="SyncServer" required="false" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">ServerInfo</CalloutArgument></Property><Property callout="getList" calloutDescription="A list of users that can be used to connect to the server" calloutLabel="User" calloutType="enumerator" description="Sync table user name" label="Sync user" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="SyncUser" required="false" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">Users</CalloutArgument></Property><Property description="Sync user password" label="Sync password" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="SyncPassword" required="false" type="protectedstring"/><Property callout="getList" calloutDescription="A list of databases on the server" calloutLabel="Database" calloutType="enumerator" description="Sync table database" label="Sync database" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="SyncDatabase" required="false" type="string" xsi:type="asc:CalloutProperty"><CalloutArgument name="class">DataSchemas</CalloutArgument></Property><Property description="Sync table key value" label="Sync ID" maxLength="256" maxOccurs="1" minLength="1" minOccurs="0" name="SyncID" required="false" type="string"/><Property default="2" description="Select the table action to perform on the sync table" label="Sync table action" maxOccurs="1" minOccurs="0" name="SyncTableAction" required="false" type="int"><Value code="1">Append</Value><Value code="2">Create</Value><Value code="3">Replace</Value><Value code="4">Truncate</Value></Property><Property default="2" description="Select the cleanup action to perform on the sync table" label="Sync table cleanup" maxOccurs="1" minOccurs="0" name="SyncTableCleanup" required="false" type="int"><Value code="1">Drop</Value><Value code="2">Keep</Value></Property><Property default="1" description="The mode to be used when writing to the sync table" filterProperty="/Usage/ParallelSynchronization/SyncTableAction" filterValue="1 2" label="Sync table write mode" maxOccurs="1" minOccurs="0" name="SyncTableWriteMode" required="false" type="int"><Value code="1">Insert</Value><Value code="2">Delete then insert</Value></Property><Property default="0" description="Number of seconds between retries to update the sync table" label="Sync poll" maxOccurs="1" minOccurs="0" minValue="0" name="SyncPoll" required="false" type="int"/><Property default="0" description="Maximum number of seconds to retry an update of the sync table" label="Sync timeout" maxOccurs="1" minOccurs="0" minValue="0" name="SyncTimeout" required="false" type="int"/><Property contexts="target" default="0" description="Maximum number of seconds to wait for the other instances to reach the checkpoint" filterProperty="/Usage/AccessMethod" filterValue="2" label="Checkpoint timeout" maxOccurs="1" minOccurs="0" minValue="0" name="CheckpointTimeout" required="false" type="int"/><Property default="0" description="Maximum number of seconds to wait for the other instances to complete" label="End timeout" maxOccurs="1" minOccurs="0" minValue="0" name="EndTimeout" required="false" type="int"/></Property></Usage></Properties><MetaBag><MetaProperty Name="InputLinkOrder" Owner="APT" Value="#"/><MetaProperty Name="OutputLinkOrder" Owner="APT" Value="!#"/></MetaBag><ModelMappings><DataConnection><ConnectionString>/Connection/Server</ConnectionString><Username>/Connection/Username</Username><Password>/Connection/Password</Password></DataConnection></ModelMappings></asc:Connector>
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+         Value =+=+=+=
+<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'><![CDATA[1]]></Context><Variant type='string'><![CDATA[8.1]]></Variant><DescriptorVersion type='string'><![CDATA[1.0]]></DescriptorVersion><PartitionType type='int'><![CDATA[-1]]></PartitionType><RCP type='int'><![CDATA[0]]></RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#TeraDataServerName#]]></Server><Username modified='1' type='string'><![CDATA[#TeraDataUserId#]]></Username><Password modified='1' type='string'><![CDATA[#TeraDataPassword#]]></Password><Database modified='1' type='string'><![CDATA[]]></Database><TransactionMode type='int'><![CDATA[1]]></TransactionMode><ClientCharacterSet type='string'><![CDATA[UTF8]]></ClientCharacterSet><AutoMapCharsetEncoding type='bool'><![CDATA[1]]></AutoMapCharsetEncoding><SSLMode type='int'><![CDATA[2]]></SSLMode></Connection><Usage><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><DescribeStringsInBytes type='bool'><![CDATA[0]]></DescribeStringsInBytes><AccessMethod type='int'><![CDATA[1]]></AccessMethod><SQL><SelectStatement collapsed='1' modified='1' type='string'><![CDATA[SEL PROCESSED_DT_TM  FROM
+#TeraDataViewDB#.VPROCCTL
+WHERE PROCESS_NM='#PROCESS_NM#';
+]]><Tables collapsed='1'><Table type='string'><![CDATA[#TeraDataViewDB#]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[PROCESSED_DT_TM,PROCESSED_DT_TM,#TeraDataViewDB#]]></Column></Columns><WhereClause type='string'><![CDATA[PROCESS_NM = '#PROCESS_NM#']]></WhereClause></SelectStatement></SQL><Transaction><RecordCount type='int'><![CDATA[2000]]></RecordCount></Transaction><Session><IsolationLevel type='int'><![CDATA[1]]></IsolationLevel><ArraySize type='int'><![CDATA[2000]]></ArraySize><SchemaReconciliation><FailOnSizeMismatch type='bool'><![CDATA[1]]></FailOnSizeMismatch><FailOnTypeMismatch type='bool'><![CDATA[1]]></FailOnTypeMismatch></SchemaReconciliation><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><LimitSettings><MaxBufferSize type='int'><![CDATA[0]]></MaxBufferSize><ProgressInterval type='int'><![CDATA[100000]]></ProgressInterval></LimitSettings></Usage></Properties>
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Orientation"
+         Value "link"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectConditions"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectDataElements"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLRejectSettings"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "TeradataConnector"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Engine"
+         Value "SE"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Context"
+         Value "source"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectionString"
+         Value "/Connection/Server"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Username"
+         Value "/Connection/Username"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Password"
+         Value "/Connection/Password"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "transactionModel"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "transactionManager"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "supportedTransactionModel"
+         Value "local"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S10P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "Dummy_Data"
+      Partner "V0S1|V0S1P2"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "8.1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "cctera"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectConditions"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectDataElements"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLRejectSettings"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "TeradataConnector"
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "PROCESSED_DT_TM"
+         SqlType "11"
+         Precision "26"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      LeftTextPos "141"
+      TopTextPos "312"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S1P1"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "Dummy_Output"
+      Partner "V0S0|V0S0P1"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "TextLine"
+         SqlType "12"
+         Precision "19"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "10"
+         Derivation "'Dummy'"
+         Group "0"
+         ParsedDerivation "'Dummy'"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      LeftTextPos "317"
+      TopTextPos "312"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S1P2"
+      OLEType "CTrxInput"
+      Readonly "0"
+      Name "Dummy_Data"
+      Partner "V0S10|V0S10P1"
+      LinkType "1"
+      MultiRow "0"
+      LinkMinimised "0"
+   END DSRECORD
+END DSJOB

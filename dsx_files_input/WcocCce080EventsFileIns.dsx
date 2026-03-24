@@ -1,0 +1,1532 @@
+BEGIN HEADER
+   CharacterSet "CP1252"
+   ExportingTool "IBM InfoSphere DataStage Export"
+   ToolVersion "8"
+   ServerName "CDOPLA-129-000"
+   ToolInstanceID "wcocprod"
+   MDISVersion "1.0"
+   Date "2023-12-02"
+   Time "17.53.27"
+   ServerVersion "11.7"
+END HEADER
+BEGIN DSJOB
+   Identifier "WcocCce080EventsFileIns"
+   DateModified "2023-12-02"
+   TimeModified "15.49.08"
+   BEGIN DSRECORD
+      Identifier "ROOT"
+      OLEType "CJobDefn"
+      Readonly "0"
+      Name "WcocCce080EventsFileIns"
+      Description "This job will load the data from source file to target table VCCE_MOBILITY_EVENTS"
+      NextID "37"
+      Container "V0"
+      FullDescription =+=+=+=
+Job:WcocCce080EventsFileIns
+Project : WCOC CCE
+Developer:  Basavaraj T
+Date : 17-Oct-2017
+
+Description :  This job will load the data from source file to target table VCCE_MOBILITY_EVENTS.                 
+
+Before Routine: NA
+After Routine: NA
+
+Restart Procedure: Re-Run the job
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Project : WCOC CCE
+Developer:  Ajaya Kumar Nayak
+Date : 04-Dec-2017
+
+Description :  This column EVENT_ID is modified from Decimal(10) to Decimal(16)          
+
+Before Routine: NA
+After Routine: NA
+
+Restart Procedure: Re-Run the job
+
+=+=+=+=
+      JobVersion "56.0.1"
+      ControlAfterSubr "1"
+      Parameters "CParameters"
+      BEGIN DSSUBRECORD
+         Name "FilePath"
+         Prompt "FilePath"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataSysdbaSpoolDB"
+         Prompt "TeraDataSysdbaSpoolDB"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CycleType"
+         Prompt "CycleType"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "FileSequenceNumber"
+         Prompt "FileSequenceNumber"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConfigFileName"
+         Prompt "ConfigFileName"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataViewDB"
+         Prompt "TeraDataViewDB"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataServerName"
+         Prompt "TeraDataServerName"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataUserId"
+         Prompt "TeraDataUserId"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataPassword"
+         Prompt "TeraDataPassword"
+         ParamType "1"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TeraDataView"
+         Prompt "TeraDataView"
+         Default "VCCE_MOBILITY_EVENTS"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "FilePathProcessing"
+         Prompt "FilePathProcessing"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ProcessingFileName"
+         Prompt "ProcessingFileName"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "InputFileName"
+         Prompt "InputFileName"
+         Default "#FilePathProcessing#/#ProcessingFileName#_#FileSequenceNumber#"
+         ParamType "0"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "AdvancedRuntimeOptions"
+         Value "#DSProjectARTOptions#"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceMode"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceSeq"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceRecords"
+         Value "100"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceSkip"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TracePeriod"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "IdentList"
+         Value "Source_File|Target_VCCE_MOBILITY_EVENTS|Source_data_Tx"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "ClientCodePage"
+         Value "1252"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RecordJobPerformanceData"
+         Value "0"
+      END DSSUBRECORD
+      NULLIndicatorPosition "0"
+      IsTemplate "0"
+      NLSLocale ",,,,"
+      JobType "3"
+      Category "\\Jobs\\CCE"
+      CenturyBreakYear "30"
+      NextAliasID "2"
+      ParameterFileDDName "DD00001"
+      ReservedWordCheck "1"
+      TransactionSize "0"
+      ValidationStatus "0"
+      Uploadable "0"
+      PgmCustomizationFlag "0"
+      JobReportFlag "0"
+      AllowMultipleInvocations "0"
+      Act2ActOverideDefaults "0"
+      Act2ActEnableRowBuffer "0"
+      Act2ActUseIPC "0"
+      Act2ActBufferSize "0"
+      Act2ActIPCTimeout "0"
+      ExpressionSemanticCheckFlag "0"
+      TraceOption "0"
+      EnableCacheSharing "0"
+      RuntimeColumnPropagation "0"
+      RelStagesInJobStatus "-1"
+      WebServiceEnabled "0"
+      MFProcessMetaData "0"
+      MFProcessMetaDataXMLFileExchangeMethod "0"
+      IMSProgType "0"
+      CopyLibPrefix "ARDT"
+      RecordPerformanceResults "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0"
+      OLEType "CContainerView"
+      Readonly "0"
+      Name "Job"
+      NextID "1"
+      IsTopLevel "0"
+      StageList "V0S115|V35S4|V0S128|V36A0"
+      StageXPos "72|456|240|68"
+      StageYPos "456|456|456|80"
+      StageTypes "CCustomStage|CCustomStage.CC_GUI|CTransformerStage|ID_PALETTEANNOTATION"
+      NextStageID "135"
+      SnapToGrid "2"
+      GridLines "0"
+      ZoomValue "100"
+      StageXSize "48|48|48|445"
+      StageYSize "48|48|48|222"
+      ContainerViewSizing "0020 0047 0858 0669 0000 0001 0000 0080"
+      StageNames "Source_File|Target_VCCE_MOBILITY_EVENTS|Source_data_Tx| "
+      StageTypeIDs "PxSequentialFile|TeradataConnectorPX|CTransformerStage| "
+      LinkNames "Source_Ln| |data_Out_Ln| "
+      LinkHasMetaDatas "True| |True| "
+      LinkTypes "1| |1| "
+      LinkNamePositionXs "123| |350| "
+      LinkNamePositionYs "483| |483| "
+      TargetStageIDs "V0S128| |V35S4| "
+      SourceStageEffectiveExecutionModes "1| |2| "
+      SourceStageRuntimeExecutionModes "1| |2| "
+      TargetStageEffectiveExecutionModes "2| |2| "
+      TargetStageRuntimeExecutionModes "2| |2| "
+      LinkIsSingleOperatorLookup "False| |False| "
+      LinkIsSortSequential "False| |False| "
+      LinkSortMode "0| |0| "
+      LinkPartColMode "1| |1| "
+      LinkSourcePinIDs "V0S115P5| |V0S128P2| "
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S115"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "Source_File"
+      NextID "7"
+      OutputPins "V0S115P5"
+      StageType "PxSequentialFile"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S115P5"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "Source_Ln"
+      Partner "V0S128|V0S128P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "schema"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "selection"
+         Value "file"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "keepPartitions"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "rejects"
+         Value "continue"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "file "
+         Value "\(2)\(2)0\(1)\(3)file \(2)#FilePathProcessing#/#ProcessingFileName#\(2)0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "missingFile"
+         Value " "
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "reportProgress"
+         Value "yes"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "firstLineColumnNames"
+         Value " "
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "EVENT_ID"
+         SqlType "12"
+         Precision "16"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "uniqueRequestId"
+         SqlType "12"
+         Precision "50"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "UNIQUE_REQUEST_ID"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "accountNumber"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "BAN"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "requestStatus"
+         SqlType "12"
+         Precision "30"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "REQUEST_STATUS"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "statusDateTime"
+         SqlType "12"
+         Precision "19"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "STATUS_DATE"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "cceUniqueId"
+         SqlType "12"
+         Precision "12"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "CCE_UNIQUE_ID"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "emailAddress"
+         SqlType "12"
+         Precision "100"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "EMAIL_ADDRESS"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "eventType"
+         SqlType "12"
+         Precision "100"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "EVENT_TYPE"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "messageId"
+         SqlType "12"
+         Precision "250"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "MESSAGE_ID"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "systemId"
+         SqlType "12"
+         Precision "25"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "SYSTEM_ID"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "language"
+         SqlType "12"
+         Precision "7"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "LANGUAGE_CD"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "brand"
+         SqlType "12"
+         Precision "250"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "BRAND_NM"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "userPrivileges"
+         SqlType "12"
+         Precision "250"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "USER_PRIVILEGES"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "nextBillDate"
+         SqlType "12"
+         Precision "8"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         TableDef "Saved\\VCCE_MOBILITY_EVENTS\\VCCE_MOBILITY_EVENTS"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ColumnReference "ACCOUNT_BILL_DATE"
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+         Value "final_delim=end, delim=',', quote=double"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "123"
+      TopTextPos "483"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S128"
+      OLEType "CTransformerStage"
+      Readonly "0"
+      Name "Source_data_Tx"
+      NextID "3"
+      InputPins "V0S128P1"
+      OutputPins "V0S128P2"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCache"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxClassName"
+         Value "V0S128_WcocCce080EventsFileIns_Source_data_Tx"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenCode"
+         Value =+=+=+=
+//
+// Generated file to implement the V0S128_WcocCce080EventsFileIns_Source_data_Tx transform operator.
+//
+
+// define our input/output link names
+inputname 0 Source_Ln;
+outputname 0 data_Out_Ln;
+
+initialize {
+ // define our control variables
+ int8 RowRejected0;
+ int8 NullSetVar0;
+
+ // declare our intermediate variables for this section (1)
+ ustring InterVar0_0;
+ ustring InterVar0_1;
+ string InterVar0_3;
+ string InterVar0_4;
+ string InterVar0_5;
+
+ // initialise constant values which require conversion
+ InterVar0_0 = "T";
+ InterVar0_1 = " ";
+ InterVar0_3 = "";
+ InterVar0_4 = "-";
+ InterVar0_5 = " 00:00:00";
+}
+
+mainloop {
+
+ // declare our intermediate variables for this section (2)
+ ustring InterVar0_2;
+
+ // initialise the rejected row variable
+ RowRejected0 = 1;
+
+ // evaluate columns (no constraints) for link: data_Out_Ln
+ data_Out_Ln.REQUEST_STATUS = Source_Ln.requestStatus;
+ InterVar0_2 = Source_Ln.statusDateTime;
+ data_Out_Ln.STATUS_DATE = timestamp_from_ustring(u_replace_substring(InterVar0_0 , InterVar0_1 , InterVar0_2));
+ data_Out_Ln.CCE_UNIQUE_ID = Source_Ln.cceUniqueId;
+ data_Out_Ln.EVENT_ID = Source_Ln.EVENT_ID;
+ data_Out_Ln.UNIQUE_REQUEST_ID = Source_Ln.uniqueRequestId;
+ data_Out_Ln.BAN = Source_Ln.accountNumber;
+ data_Out_Ln.EMAIL_ADDRESS = Source_Ln.emailAddress;
+ data_Out_Ln.EVENT_TYPE = Source_Ln.eventType;
+ data_Out_Ln.MESSAGE_ID = Source_Ln.messageId;
+ data_Out_Ln.SYSTEM_ID = Source_Ln.systemId;
+ data_Out_Ln.LANGUAGE_CD = Source_Ln.language;
+ data_Out_Ln.BRAND_NM = Source_Ln.brand;
+ NullSetVar0 = 0;
+ if ((trimc_string(Source_Ln.userPrivileges) == InterVar0_3)) {
+  NullSetVar0 = 1;
+ } else {
+  data_Out_Ln.USER_PRIVILEGES = Source_Ln.userPrivileges;
+ }
+ data_Out_Ln.USER_PRIVILEGES = ((NullSetVar0 == 1) ? set_null() : data_Out_Ln.USER_PRIVILEGES);
+ NullSetVar0 = 0;
+ if ((trimc_string(Source_Ln.nextBillDate) == InterVar0_3)) {
+  NullSetVar0 = 1;
+ } else {
+  data_Out_Ln.ACCOUNT_BILL_DATE = timestamp_from_string(((((left_substring(Source_Ln.nextBillDate , 4) + InterVar0_4) + right_substring(left_substring(Source_Ln.nextBillDate , 6) , 2)) + InterVar0_4) + right_substring(Source_Ln.nextBillDate , 2)) + InterVar0_5);
+ }
+ data_Out_Ln.ACCOUNT_BILL_DATE = ((NullSetVar0 == 1) ? set_null() : data_Out_Ln.ACCOUNT_BILL_DATE);
+ writerecord 0;
+ RowRejected0 = 0;
+}
+
+finish {
+}
+
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TrxGenWarnings"
+         Value =+=+=+=
+Source_data_Tx
+   WARNING: Error in output column derivation expression for column CCE_UNIQUE_ID in link data_Out_Ln. 
+       - potential data or precision loss converting from string to decimal
+   WARNING: Error in output column derivation expression for column EVENT_ID in link data_Out_Ln. 
+       - potential data or precision loss converting from string to decimal
+
+=+=+=+=
+      END DSSUBRECORD
+      ValidationStatus "0"
+      StageType "CTransformerStage"
+      BlockSize "0"
+      StageVarsMinimised "0"
+      LoopVarsMaximised "0"
+      MaxLoopIterations "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S128P1"
+      OLEType "CTrxInput"
+      Readonly "0"
+      Name "Source_Ln"
+      Partner "V0S115|V0S115P5"
+      LinkType "1"
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  EVENT_ID:string[max=16];
+  uniqueRequestId:string[max=50];
+  accountNumber:string[max=255];
+  requestStatus:string[max=30];
+  statusDateTime:string[max=19];
+  cceUniqueId:string[max=12];
+  emailAddress:string[max=100];
+  eventType:string[max=100];
+  messageId:string[max=250];
+  systemId:string[max=25];
+  language:string[max=7];
+  brand:string[max=250];
+  userPrivileges:nullable string[max=250];
+  nextBillDate:nullable string[max=8];
+)
+=+=+=+=
+      END DSSUBRECORD
+      MultiRow "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S128P2"
+      OLEType "CTrxOutput"
+      Readonly "0"
+      Name "data_Out_Ln"
+      Partner "V35S4|V35S4P4"
+      Reject "0"
+      ErrorPin "0"
+      RowLimit "0"
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "REQUEST_STATUS"
+         SqlType "12"
+         Precision "30"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "0"
+         Derivation "Source_Ln.requestStatus"
+         Group "0"
+         ParsedDerivation "Source_Ln.requestStatus"
+         SourceColumn "Source_Ln.requestStatus"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "STATUS_DATE"
+         SqlType "11"
+         Precision "19"
+         Scale "6"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "0"
+         Derivation "Convert('T',' ', Source_Ln.statusDateTime)"
+         Group "0"
+         ParsedDerivation "Convert('T', ' ', Source_Ln.statusDateTime)"
+         SourceColumn "Source_Ln.statusDateTime"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CCE_UNIQUE_ID"
+         SqlType "3"
+         Precision "12"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "0"
+         Derivation "Source_Ln.cceUniqueId"
+         Group "0"
+         ParsedDerivation "Source_Ln.cceUniqueId"
+         SourceColumn "Source_Ln.cceUniqueId"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "EVENT_ID"
+         SqlType "3"
+         Precision "16"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "1"
+         DisplaySize "0"
+         Derivation "Source_Ln.EVENT_ID"
+         Group "0"
+         ParsedDerivation "Source_Ln.EVENT_ID"
+         SourceColumn "Source_Ln.EVENT_ID"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "UNIQUE_REQUEST_ID"
+         SqlType "12"
+         Precision "50"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "Source_Ln.uniqueRequestId"
+         Group "0"
+         ParsedDerivation "Source_Ln.uniqueRequestId"
+         SourceColumn "Source_Ln.uniqueRequestId"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "BAN"
+         SqlType "12"
+         Precision "255"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "Source_Ln.accountNumber"
+         Group "0"
+         ParsedDerivation "Source_Ln.accountNumber"
+         SourceColumn "Source_Ln.accountNumber"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "EMAIL_ADDRESS"
+         SqlType "12"
+         Precision "100"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "Source_Ln.emailAddress"
+         Group "0"
+         ParsedDerivation "Source_Ln.emailAddress"
+         SourceColumn "Source_Ln.emailAddress"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "EVENT_TYPE"
+         SqlType "12"
+         Precision "100"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "Source_Ln.eventType"
+         Group "0"
+         ParsedDerivation "Source_Ln.eventType"
+         SourceColumn "Source_Ln.eventType"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "MESSAGE_ID"
+         SqlType "12"
+         Precision "250"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "Source_Ln.messageId"
+         Group "0"
+         ParsedDerivation "Source_Ln.messageId"
+         SourceColumn "Source_Ln.messageId"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SYSTEM_ID"
+         SqlType "12"
+         Precision "25"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "Source_Ln.systemId"
+         Group "0"
+         ParsedDerivation "Source_Ln.systemId"
+         SourceColumn "Source_Ln.systemId"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "LANGUAGE_CD"
+         SqlType "12"
+         Precision "7"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "Source_Ln.language"
+         Group "0"
+         ParsedDerivation "Source_Ln.language"
+         SourceColumn "Source_Ln.language"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "BRAND_NM"
+         SqlType "12"
+         Precision "250"
+         Scale "0"
+         Nullable "0"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "Source_Ln.brand"
+         Group "0"
+         ParsedDerivation "Source_Ln.brand"
+         SourceColumn "Source_Ln.brand"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "USER_PRIVILEGES"
+         SqlType "12"
+         Precision "250"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "If Trim(Source_Ln.userPrivileges)='' Then SetNull() Else Source_Ln.userPrivileges"
+         Group "0"
+         ParsedDerivation " If Trim(Source_Ln.userPrivileges) = '' Then SetNull() Else Source_Ln.userPrivileges"
+         SourceColumn "Source_Ln.userPrivileges"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ACCOUNT_BILL_DATE"
+         SqlType "11"
+         Precision "0"
+         Scale "6"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Derivation "If Trim(Source_Ln.nextBillDate)='' Then SetNull() Else Left(Source_Ln.nextBillDate,4):\"-\":Right(Left(Source_Ln.nextBillDate,6),2):\"-\":Right(Source_Ln.nextBillDate,2):\" 00:00:00\""
+         Group "0"
+         ParsedDerivation " If Trim(Source_Ln.nextBillDate) = '' Then SetNull() Else Left(Source_Ln.nextBillDate, 4) : \"-\" : Right(Left(Source_Ln.nextBillDate, 6), 2) : \"-\" : Right(Source_Ln.nextBillDate, 2) : \" 00:00:00\""
+         SourceColumn "Source_Ln.nextBillDate"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Schema"
+         Value =+=+=+=
+record
+(
+  REQUEST_STATUS:string[max=30];
+  STATUS_DATE:timestamp;
+  CCE_UNIQUE_ID:decimal[12,0];
+  EVENT_ID:decimal[16,0];
+  UNIQUE_REQUEST_ID:string[max=50];
+  BAN:string[max=255];
+  EMAIL_ADDRESS:string[max=100];
+  EVENT_TYPE:string[max=100];
+  MESSAGE_ID:string[max=250];
+  SYSTEM_ID:string[max=25];
+  LANGUAGE_CD:string[max=7];
+  BRAND_NM:string[max=250];
+  USER_PRIVILEGES:nullable string[max=250];
+  ACCOUNT_BILL_DATE:nullable timestamp;
+)
+=+=+=+=
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "350"
+      TopTextPos "483"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V35S4"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "Target_VCCE_MOBILITY_EVENTS"
+      NextID "5"
+      InputPins "V35S4P4"
+      StageType "TeradataConnectorPX"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "cctera12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariants"
+         Value "8.1,12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsLibraries"
+         Value "cctera,cctera12"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsVersions"
+         Value "1.0,1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Orientation"
+         Value "link"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "TeradataConnector"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Engine"
+         Value "EE"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Context"
+         Value "target"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectionString"
+         Value "/Connection/Server"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Username"
+         Value "/Connection/Username"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Password"
+         Value "/Connection/Password"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+         Value "<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'><![CDATA[2]]></Context><Variant type='string'><![CDATA[12]]></Variant><DescriptorVersion type='string'><![CDATA[1.0]]></DescriptorVersion><PartitionType type='int'><![CDATA[-1]]></PartitionType><RCP type='int'><![CDATA[0]]></RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#TeraDataServerName#]]></Server><Username modified='1' type='string'><![CDATA[#TeraDataUserId#]]></Username><Password modified='1' type='string'><![CDATA[#TeraDataPassword#]]></Password><Database modified='1' type='string'><![CDATA[#TeraDataViewDB#]]></Database><TransactionMode type='int'><![CDATA[1]]></TransactionMode><ClientCharacterSet modified='1' type='string'><![CDATA[ASCII]]></ClientCharacterSet><AutoMapCharsetEncoding modified='1' type='bool'><![CDATA[0]]></AutoMapCharsetEncoding><NLSMapName modified='1' type='string'><![CDATA[ISO-8859-1]]></NLSMapName><MaxBytesPerCharacter modified='1' type='int'><![CDATA[1]]></MaxBytesPerCharacter><SSLMode type='int'><![CDATA[2]]></SSLMode></Connection><Usage><WriteMode modified='1' type='int'><![CDATA[0]]></WriteMode><GenerateSQL modified='1' type='bool'><![CDATA[1]]></GenerateSQL><TableName modified='1' type='string'><![CDATA[#TeraDataView#]]></TableName><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><AccessMethod modified='1' type='int'><![CDATA[2]]></AccessMethod><SQL></SQL><TableAction collapsed='1' type='int'><![CDATA[0]]></TableAction><Transaction><RecordCount modified='1' type='int'><![CDATA[40000]]></RecordCount></Transaction><Session><ArraySize modified='1' type='int'><![CDATA[40]]></ArraySize><SchemaReconciliation><UnusedFieldAction type='int'><![CDATA[1]]></UnusedFieldAction></SchemaReconciliation><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator></Session><BeforeAfter modified='1' type='bool'><![CDATA[1]]><before modified='1' type='string'><![CDATA[]]><FailOnError type='bool'><![CDATA[1]]></FailOnError></before><after modified='1' type='string'><![CDATA[CALL #TeraDataViewDB#.USP_COLLECT_STATS_MAIN_SP(CURRENT_TIMESTAMP,'#TeraDataViewDB#','#TeraDataView#');]]><FailOnError modified='1' type='bool'><![CDATA[1]]></FailOnError></after><beforeNode type='string'><![CDATA[]]><FailOnError type='bool'><![CDATA[1]]></FailOnError></beforeNode><afterNode type='string'><![CDATA[]]><FailOnError modified='1' type='bool'><![CDATA[1]]></FailOnError></afterNode><BeforeSQLFile type='string'><![CDATA[]]><FailOnError type='bool'><![CDATA[1]]></FailOnError></BeforeSQLFile><AfterSQLFile type='string'><![CDATA[]]><FailOnError modified='1' type='bool'><![CDATA[1]]></FailOnError></AfterSQLFile></BeforeAfter><BulkAccess><LoadType modified='1' type='int'><![CDATA[2]]></LoadType><ErrorTable1 modified='1' type='string'><![CDATA[SYSDBA_SPOOL.#TeraDataView#_ERR1]]></ErrorTable1><ErrorTable2 modified='1' type='string'><![CDATA[SYSDBA_SPOOL.#TeraDataView#_ERR2]]></ErrorTable2><LogTable modified='1' type='string'><![CDATA[SYSDBA_SPOOL.#TeraDataView#_LOG]]></LogTable><WorkTable modified='1' type='string'><![CDATA[SYSDBA_SPOOL.#TeraDataView#_WT]]></WorkTable><StartMode type='int'><![CDATA[1]]></StartMode><CleanupMode type='int'><![CDATA[1]]></CleanupMode><Sleep type='int'><![CDATA[0]]></Sleep><Tenacity type='int'><![CDATA[0]]></Tenacity><ErrorLimit type='int'><![CDATA[0]]></ErrorLimit><ErrorControl><DuplicateInsertRows type='int'><![CDATA[1]]></DuplicateInsertRows></ErrorControl><UpdateLoad collapsed='1'></UpdateLoad></BulkAccess><LimitSettings><MaxSessions type='int'><![CDATA[0]]></MaxSessions><MaxPartitionSessions type='int'><![CDATA[0]]></MaxPartitionSessions><MinSessions type='int'><![CDATA[0]]></MinSessions><MaxBufferSize type='int'><![CDATA[0]]></MaxBufferSize><StartRow type='int'><![CDATA[0]]></StartRow><EndRow type='int'><![CDATA[0]]></EndRow><ProgressInterval type='int'><![CDATA[100000]]></ProgressInterval></LimitSettings><ParallelSynchronization collapsed='1' type='bool'><![CDATA[0]]></ParallelSynchronization></Usage></Properties>"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "LogOnMech"
+         Value "/Connection/LogOnMech"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SSLMode"
+         Value "/Connection/SSLMode"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SSLProtocol"
+         Value "/Connection/SSLMode/SSLProtocol"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "UseCert"
+         Value "/Connection/SSLMode/UseCert"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SSLCA"
+         Value "/Connection/SSLMode/UseCert/SSLCA"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V35S4P4"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "data_Out_Ln"
+      Partner "V0S128|V0S128P2"
+      LinkType "1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "8.1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "cctera"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "TeradataConnector"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V36A0"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V36A0"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText =+=+=+=
+Job:WcocCce080EventsFileIns
+Project : WCOC CCE
+Developer:  Basavaraj T
+Date : 17-Oct-2017
+
+Description :  This job will load the data from source file to target table VCCE_MOBILITY_EVENTS.                 
+
+Before Routine: NA
+After Routine: NA
+
+Restart Procedure: Re-Run the job
+=+=+=+=
+      TextFont "Microsoft Sans Serif\\11\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "0"
+      TextVerticalJustification "0"
+      TextColor "0"
+      BackgroundColor "12713983"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+END DSJOB

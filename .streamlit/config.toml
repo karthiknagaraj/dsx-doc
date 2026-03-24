@@ -1,0 +1,15 @@
+# Streamlit configuration
+
+# Keep settings minimal and compatible across Streamlit versions.
+
+[browser]
+gatherUsageStats = false
+
+[server]
+# Keep default behavior; avoid editing [server] at runtime to prevent
+# Streamlit's "server config option update detected" auto-reload stop.
+# If you want headless mode, pass `--server.headless=true` on the CLI.
+
+
+[theme]
+base = "light"
