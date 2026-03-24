@@ -1,0 +1,9 @@
+# Docs repository ignores
+.env
+*.sqlite
+*.sqlite-journal
+__pycache__/
+.venv/
+venv/
+.DS_Store
+Thumbs.db
